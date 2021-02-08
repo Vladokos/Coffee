@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     entry: ['./src/main.ts'],
     devtool: 'inline-source-map',
@@ -24,14 +25,15 @@ module.exports = {
                 test: /\.html$/,
                 use: ['html-loader']
             },
+            
             {
                 test: /\.(png|jpe?g|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader:'file-loader',
                         options: {
-                            name: "[name].[hash].[ext]",
                             outputPath: 'images',
+                            name: "[name].[hash].[ext]",
                         }
                     },
                 ]
@@ -49,7 +51,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/teplate.html'
-        })
+        }),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
