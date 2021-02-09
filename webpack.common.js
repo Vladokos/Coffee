@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack');
 
 
 module.exports = {
@@ -25,17 +26,36 @@ module.exports = {
                 test: /\.html$/,
                 use: ['html-loader']
             },
-            
+
             {
                 test: /\.(png|jpe?g|gif)$/,
                 use: [
                     {
-                        loader:'file-loader',
+                        loader: 'file-loader',
                         options: {
-                            outputPath: 'images',
                             name: "[name].[hash].[ext]",
+                            outputPath: 'images',
                         }
                     },
+                    {
+                        loader: ImageminPlugin.loader,
+                        options: {
+                            bail: false,
+                            cache: false,
+                            imageminOptions: {
+                                plugins: [
+                                    ['pngquant', { quality: [0.5, 0.5] }],
+                                    ['mozjpeg', { quality: 50, progressive: true }],
+                                    ['gifsicle', { interlaced: true, optimizationLevel: 3 }],
+                                    ['svgo', {
+                                        plugins: [
+                                            { removeViewBox: false }
+                                        ]
+                                    }]
+                                ]
+                            }
+                        }
+                    }
                 ]
             },
 
