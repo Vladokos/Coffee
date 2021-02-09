@@ -31,10 +31,13 @@ module.exports = {
                 test: /\.(png|jpe?g|gif)$/,
                 use: [
                     {
+                     
                         loader: 'file-loader',
                         options: {
-                            name: "[name].[hash].[ext]",
-                            outputPath: 'images',
+                            name: '[name].[ext]',
+                            outputPath: 'images/',
+                            publicPath: 'images/',
+                            useRelativePaths: true
                         }
                     },
                     {
