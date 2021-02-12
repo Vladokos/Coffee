@@ -1,0 +1,263 @@
+/* 
+reset
+*/
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+/* 
+reset
+*/
+* {
+}
+.container {
+    max-width: 1206px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+@mixin textMX($wg, $fm, $sz, $cl, $lh) {
+    color: $cl;
+    font: {
+        weight: $wg;
+        family: $fm, sans-serif;
+        size: $sz;
+    }
+    line-height: $lh;
+}
+.header {
+    background: url(./assets/img/header/bg.jpg);
+    background-color: #f9fbff;
+    background-position: center;
+    background-repeat: no-repeat;
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+
+        .left-side {
+            background-color: #f9fbff;
+            width: 22%;
+            padding: 76px 0 0 0;
+            .logo {
+                margin-bottom: 406px;
+            }
+            .quotes {
+                @include textMX(900, "Montserrat", 54px, #415167, 70px);
+                span {
+                    background-color: #c7a17a;
+                    color: #fff;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        .video {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            .videon-btn {
+            }
+        }
+
+        .right-side {
+            background-color: #415167;
+            width: 22%;
+            padding: 76px 0 0 0;
+            .menu {
+                .menu__list {
+                    li {
+                        margin-bottom: 35px;
+                        @include textMX(400, "Nunito", 16px, #edf0f5, 24px);
+                        margin-left: 56px;
+                    }
+                    li:hover {
+                        content: "";
+                        color: green;
+                    }
+                    a {
+                        color: #edf0f5;
+                    }
+                    .cart {
+                        margin-bottom: 122px - 35px;
+                    }
+                    // .cart__active{}
+                    .two {
+                    }
+                    .three {
+                    }
+                    .four {
+                    }
+                    .five {
+                    }
+                    .six {
+                    }
+                    .seven {
+                    }
+                }
+            }
+        }
+    }
+}

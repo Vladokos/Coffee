@@ -47,8 +47,8 @@ module.exports = {
                             cache: false,
                             imageminOptions: {
                                 plugins: [
-                                    ['pngquant', { quality: [0.5, 0.5] }],
-                                    ['mozjpeg', { quality: 50, progressive: true }],
+                                    ['pngquant', { quality: [0.9, 1] }],
+                                    ['mozjpeg', { quality: 100, progressive: true }],
                                     ['gifsicle', { interlaced: true, optimizationLevel: 3 }],
                                     ['svgo', {
                                         plugins: [
