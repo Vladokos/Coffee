@@ -172,8 +172,10 @@ select {
 /* 
 reset
 */
-* {
+body {
+    background-color: #f9fbff;
 }
+// header
 .container {
     max-width: 1206px;
     margin: 0 auto;
@@ -190,7 +192,6 @@ reset
 }
 .header {
     background: url(./assets/img/header/bg.jpg);
-    background-color: #f9fbff;
     background-position: center;
     background-repeat: no-repeat;
     .header-inner {
@@ -199,7 +200,6 @@ reset
         box-sizing: border-box;
 
         .left-side {
-            background-color: #f9fbff;
             width: 22%;
             padding: 76px 0 0 0;
             .logo {
@@ -207,6 +207,7 @@ reset
             }
             .quotes {
                 @include textMX(900, "Montserrat", 54px, #415167, 70px);
+                margin-bottom: 35px;
                 span {
                     background-color: #c7a17a;
                     color: #fff;
@@ -218,8 +219,12 @@ reset
             align-items: center;
             justify-content: center;
             display: flex;
+
             .videon-btn {
             }
+        }
+        .video.active {
+            background-color: darkblue;
         }
 
         .right-side {
@@ -233,28 +238,151 @@ reset
                         @include textMX(400, "Nunito", 16px, #edf0f5, 24px);
                         margin-left: 56px;
                     }
-                    li:hover {
-                        content: "";
-                        color: green;
-                    }
                     a {
                         color: #edf0f4;
+                    }
+                    a:hover {
+                        content: "";
+                        font-weight: 700;
                     }
                     .cart {
                         margin-bottom: 122px - 35px;
                     }
                     // .cart__active{}
-                    .two {
+                }
+            }
+        }
+    }
+}
+//popup
+.popup-video {
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transform: scale(0);
+    .popup-body {
+        transform: scale(0);
+        transition: all 0.7s ease-in 0s;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 10px;
+        .popup-content {
+            position: relative;
+            .video-player {
+            }
+            .close-button {
+                margin: 0 0 34em;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.popup-video.active {
+    transition: transform 0.7s cubic-bezier(0.7, 0, 0.84, 0);
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    .popup-body {
+        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform: scale(1);
+    }
+}
+//popup
+// header
+
+//store inf
+.storeInform {
+    padding: 87px 0 128.43px 0;
+    .storeInform-inner {
+        text-align: center;
+        .title {
+            @include textMX(600, "Nunito", 20px, #415167, 24px);
+            margin-bottom: 7px;
+        }
+        .subtitle {
+            @include textMX(900, "Montserrat", 30px, #415167, 34px);
+            margin-bottom: 72.28px;
+        }
+        .advantages-items {
+            display: flex;
+            .advantages__item {
+                margin-left: 66px;
+                .img__item {
+                    margin-bottom: 41.5px;
+                }
+                .title__item {
+                    @include textMX(700, "Nunito", 24px, #232c38, 28px);
+                    margin-bottom: 12.11px;
+                }
+                .inf {
+                    @include textMX(400, "Nunito", 16px, #151d28, 22px);
+                }
+            }
+        }
+    }
+}
+//store inf
+
+.catalog {
+    .catalog-inner {
+        .title {
+            @include textMX(600, "Nunito", 20px, #415167, 24px);
+            text-align: center;
+        }
+        .subtitle {
+            @include textMX(900, "Montserrat", 30px, #415167, 34px);
+            text-align: center;
+        }
+        // .backcolor {
+        // }
+        .catalog-items {
+            display: flex;
+            margin:  0 -21em 0;
+            .catalog_block {
+                margin-right: 30px;
+                .catalog__item {
+                    margin-bottom: 32px;
+                    background-color: #fff;
+
+                    .photo {
                     }
-                    .three {
-                    }
-                    .four {
-                    }
-                    .five {
-                    }
-                    .six {
-                    }
-                    .seven {
+                    display: flex;
+                    .text {
+                        
+                        .price {
+                            @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
+                            margin-bottom: 17px;
+                            margin-left: 45px;
+                        }
+                        .title {
+                            @include textMX(700, "Nunito", 24px, #232c38, 28px);
+                            margin-bottom: 34px;
+                        }
+                        .inf {
+                            @include textMX(400, "Nunito", 16px, #151d28, 22px);
+                            margin-bottom: 36px;
+                            margin-left: 45px;
+                        }
+                        .cart-btn {
+                            
+                            .in__cart {
+                                border-radius: 19px;
+                                background: #c7a17a;
+                                @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
+                                margin-right: 29px;
+                                margin-left: 45px;
+                            }
+                            .deetails {
+                                @include textMX(700, "Nunito", 16px, #415167, 22px);
+                            }
+                        }
                     }
                 }
             }

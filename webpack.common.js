@@ -10,7 +10,7 @@ module.exports = {
     devtool: 'inline-source-map',
     module: {
         rules: [
-
+            //bable
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -21,17 +21,17 @@ module.exports = {
                     }
                 }
             },
-
+            //html
             {
                 test: /\.html$/,
                 use: ['html-loader']
             },
-
+            //img
             {
                 test: /\.(png|jpe?g|gif)$/,
                 use: [
                     {
-                     
+
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
@@ -40,6 +40,7 @@ module.exports = {
                             useRelativePaths: true
                         }
                     },
+                    //img compress
                     {
                         loader: ImageminPlugin.loader,
                         options: {
@@ -61,7 +62,23 @@ module.exports = {
                     }
                 ]
             },
+            //video
+            {
+                test: /\.mp4$/,
+                use: [
+                    {
 
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'video/',
+                            publicPath: 'video/',
+                            useRelativePaths: true
+                        }
+                    },
+                ]
+            },
+            //ts
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
@@ -69,7 +86,9 @@ module.exports = {
             },
         ]
     },
-
+    //clean dist
+    //creat html
+    //translate ts to js
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
