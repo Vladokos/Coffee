@@ -224,7 +224,7 @@ body {
             }
         }
         .video.active {
-            background-color: darkblue;
+            
         }
 
         .right-side {
@@ -331,53 +331,62 @@ body {
 //store inf
 
 .catalog {
+    padding: 90px 0 128px 0;
     .catalog-inner {
+        // overflow: hidden;
         .title {
             @include textMX(600, "Nunito", 20px, #415167, 24px);
             text-align: center;
+            margin-bottom: 12px;
         }
         .subtitle {
             @include textMX(900, "Montserrat", 30px, #415167, 34px);
             text-align: center;
+            margin-bottom: 72px;
         }
         // .backcolor {
         // }
         .catalog-items {
             display: flex;
-            margin:  0 -21em 0;
-            .catalog_block {
-                margin-right: 30px;
+            margin:  0 -21em 0 -16em;
+            .catalog__block {
+                margin-right: 15px;
+                margin-left: 15px;
                 .catalog__item {
+                    width: 559px;
+                    filter: drop-shadow(0px 4px 24px rgba(205, 205, 205, 0.5));
                     margin-bottom: 32px;
                     background-color: #fff;
 
                     .photo {
+                        background-color: #EDF0F5;
                     }
                     display: flex;
                     .text {
-                        
+                        max-width: 559px;
+                        margin: 42px 0 42px 45px;
                         .price {
                             @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
                             margin-bottom: 17px;
-                            margin-left: 45px;
                         }
-                        .title {
+                        .productName {
                             @include textMX(700, "Nunito", 24px, #232c38, 28px);
                             margin-bottom: 34px;
+
                         }
                         .inf {
                             @include textMX(400, "Nunito", 16px, #151d28, 22px);
                             margin-bottom: 36px;
-                            margin-left: 45px;
                         }
                         .cart-btn {
                             
+                            margin-right: 49px;
                             .in__cart {
                                 border-radius: 19px;
                                 background: #c7a17a;
                                 @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
                                 margin-right: 29px;
-                                margin-left: 45px;
+                                padding: 8px 17px;
                             }
                             .deetails {
                                 @include textMX(700, "Nunito", 16px, #415167, 22px);

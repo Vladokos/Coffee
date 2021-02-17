@@ -15,3 +15,8 @@ videoCloseBtn?.addEventListener('click',function(){
 });
 // header
 
+//
+let catalogBlock = document.querySelectorAll('.catalog__block');
+
+
+//
