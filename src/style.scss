@@ -224,7 +224,6 @@ body {
             }
         }
         .video.active {
-            
         }
 
         .right-side {
@@ -333,7 +332,7 @@ body {
 .catalog {
     padding: 90px 0 128px 0;
     .catalog-inner {
-        // overflow: hidden;
+        position: relative;
         .title {
             @include textMX(600, "Nunito", 20px, #415167, 24px);
             text-align: center;
@@ -344,22 +343,74 @@ body {
             text-align: center;
             margin-bottom: 72px;
         }
-        // .backcolor {
-        // }
+        .next-slide {
+            background-color: #c7a17a;
+            border: none;
+            top: 30em;
+            left: 68em;
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            cursor: pointer;
+            .prop {
+                position: absolute;
+                top: 23px;
+                width: 24px;
+                height: 3px;
+                background-color: #fff;
+                left: 13px;
+                display: block;
+                border-radius: 20px;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 13px;
+                height: 3px;
+                top: 19px;
+                right: 9px;
+                background-color: #fff;
+                transform: rotate(45deg);
+                border-radius: 20px;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                width: 13px;
+                height: 3px;
+                top: 27px;
+                right: 9px;
+                background-color: #fff;
+                transform: rotate(-45deg);
+                border-radius: 20px;
+            }
+        }
+        .backcolor {
+            width: 384px;
+            height: 100%;
+            position: absolute;
+            background: #415167;
+            z-index: -1;
+            top: 0;
+            left: -22em;
+        }
         .catalog-items {
             display: flex;
-            margin:  0 -21em 0 -16em;
+            margin: 0 -21em 0 -15.5em;
+            overflow: hidden;
             .catalog__block {
                 margin-right: 15px;
                 margin-left: 15px;
                 .catalog__item {
                     width: 559px;
-                    filter: drop-shadow(0px 4px 24px rgba(205, 205, 205, 0.5));
                     margin-bottom: 32px;
                     background-color: #fff;
 
                     .photo {
-                        background-color: #EDF0F5;
+                        background-color: #edf0f5;
                     }
                     display: flex;
                     .text {
@@ -372,14 +423,12 @@ body {
                         .productName {
                             @include textMX(700, "Nunito", 24px, #232c38, 28px);
                             margin-bottom: 34px;
-
                         }
                         .inf {
                             @include textMX(400, "Nunito", 16px, #151d28, 22px);
                             margin-bottom: 36px;
                         }
                         .cart-btn {
-                            
                             margin-right: 49px;
                             .in__cart {
                                 border-radius: 19px;
@@ -394,6 +443,13 @@ body {
                         }
                     }
                 }
+            }
+            //opacity control slider
+            .catalog__block.visible {
+                opacity: 1;
+            }
+            .catalog__block.clear {
+                opacity: 0.5;
             }
         }
     }
