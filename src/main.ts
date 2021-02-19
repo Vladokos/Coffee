@@ -1,5 +1,6 @@
 import './style.scss';
 import './teplate.html';
+import Swiper from 'swiper';
 // header
 let videoBtn = document.querySelector('.videon-btn');
 let videoCloseBtn = document.querySelector('.close-button');
@@ -15,7 +16,7 @@ videoCloseBtn?.addEventListener('click', function () {
 });
 // header
 
-//
+//slider
 let catalogBlock = document.getElementsByClassName('catalog__block');
 for (let i = 0; i < catalogBlock.length; i++) {
     console.log(i);
@@ -27,4 +28,14 @@ for (let i = 0; i < catalogBlock.length; i++) {
 
 }
 
-//
+new Swiper('.catalog-items',{
+    //arrow
+    navigation:{
+        nextEl:'.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+
+});
+
+
+//slider
