@@ -27,17 +27,40 @@ for (let i = 0; i < catalogBlock.length; i++) {
     }
 
 }
-
+let c = 0;
+let g = 0;
 Swiper.use([Navigation, Pagination]);
 new Swiper('.catalog-items', {
     slidesPerGroup: 2,
-    slidesOffsetBefore: 200, 
-    slidesOffsetAfter: -780, 
+    slidesOffsetBefore: 200,
+    slidesOffsetAfter: -780,
     spaceBetween: -630,
     grabCursor: true,
     navigation: {
         nextEl: '.next-slide',
         prevEl: '.prev-slide',
+    },
+
+    on: {
+        slideNextTransitionStart: function () {
+            console.log('change!');
+
+            g += 2;
+            for (c = 0; c < catalogBlock.length; c++) {
+                catalogBlock[c].classList.add('clear');
+                if (c == g) {
+                    for (let i = g; i < g + 2; i++){
+                        console.log('chge');
+                        catalogBlock[i].classList.remove('clear');
+                        catalogBlock[i].classList.add('visible');
+                        // if(i == g + 2){
+                        //     break;
+                        // }
+                    }
+                    break;
+                }
+            }
+        },
     },
 
 });
