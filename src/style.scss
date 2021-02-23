@@ -1,5 +1,6 @@
 @import "reset.scss";
-
+// @import "swiper.scss";
+@import "../node_modules/swiper/swiper-bundle.css";
 
 body {
     background-color: #f9fbff;
@@ -184,45 +185,45 @@ body {
             cursor: pointer;
             z-index: 2;
             cursor: pointer;
-            .prop {
-                position: absolute;
-                top: 23px;
-                width: 24px;
-                height: 3px;
-                background-color: #fff;
-                left: 13px;
-                display: block;
-                border-radius: 20px;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 19px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(45deg);
-                border-radius: 20px;
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 27px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(-45deg);
-                border-radius: 20px;
-            }
+            // .prop {
+            //     position: absolute;
+            //     top: 23px;
+            //     width: 24px;
+            //     height: 3px;
+            //     background-color: #fff;
+            //     left: 13px;
+            //     display: block;
+            //     border-radius: 20px;
+            // }
+            // &::after {
+            //     content: "";
+            //     position: absolute;
+            //     width: 13px;
+            //     height: 3px;
+            //     top: 19px;
+            //     right: 9px;
+            //     background-color: #fff;
+            //     transform: rotate(45deg);
+            //     border-radius: 20px;
+            // }
+            // &::before {
+            //     content: "";
+            //     position: absolute;
+            //     width: 13px;
+            //     height: 3px;
+            //     top: 27px;
+            //     right: 9px;
+            //     background-color: #fff;
+            //     transform: rotate(-45deg);
+            //     border-radius: 20px;
+            // }
         }
         .prev-slide {
             transform: rotate(180deg);
             background-color: #c7a17a;
             border: none;
             top: 30em;
-            left: -20em;
+            left: 25em;
             position: absolute;
             width: 48px;
             height: 48px;
@@ -230,38 +231,38 @@ body {
             cursor: pointer;
             z-index: 2;
             cursor: pointer;
-            .prop {
-                position: absolute;
-                top: 23px;
-                width: 24px;
-                height: 3px;
-                background-color: #fff;
-                left: 13px;
-                display: block;
-                border-radius: 20px;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 19px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(45deg);
-                border-radius: 20px;
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 27px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(-45deg);
-                border-radius: 20px;
-            }
+            // .prop {
+            //     position: absolute;
+            //     top: 23px;
+            //     width: 24px;
+            //     height: 3px;
+            //     background-color: #fff;
+            //     left: 13px;
+            //     display: block;
+            //     border-radius: 20px;
+            // }
+            // &::after {
+            //     content: "";
+            //     position: absolute;
+            //     width: 13px;
+            //     height: 3px;
+            //     top: 19px;
+            //     right: 9px;
+            //     background-color: #fff;
+            //     transform: rotate(45deg);
+            //     border-radius: 20px;
+            // }
+            // &::before {
+            //     content: "";
+            //     position: absolute;
+            //     width: 13px;
+            //     height: 3px;
+            //     top: 27px;
+            //     right: 9px;
+            //     background-color: #fff;
+            //     transform: rotate(-45deg);
+            //     border-radius: 20px;
+            // }
         }
         .backcolor {
             width: 384px;
@@ -273,10 +274,11 @@ body {
             left: -22em;
         }
         .catalog-items {
+            // flex-shrink: 1;
             .swiper-wrapper {
                 display: flex;
                 margin: 0 -21em 0 -14.5em;
-                overflow: hidden;
+                // overflow: hidden;
                 .catalog__block {
                     margin-right: 15px;
                     margin-left: 15px;
