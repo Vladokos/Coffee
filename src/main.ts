@@ -27,13 +27,14 @@ for (let i = 0; i < catalogBlock.length; i++) {
     }
 
 }
-let c = 0;
-let g = 0;
+let checkSlideList = 0;//Проверяет номер стр. слайда
+let slideOffsetAft = -780;
+let slidesOffsetBef = 200;
 Swiper.use([Navigation, Pagination]);
 new Swiper('.catalog-items', {
     slidesPerGroup: 2,
-    slidesOffsetBefore: 200,
-    slidesOffsetAfter: -780,
+    slidesOffsetBefore: slidesOffsetBef,
+    slidesOffsetAfter: slideOffsetAft,
     spaceBetween: -630,
     grabCursor: true,
     navigation: {
@@ -43,26 +44,32 @@ new Swiper('.catalog-items', {
 
     on: {
         slideNextTransitionStart: function () {
-            console.log('change!');
-
-            g += 2;
-            for (c = 0; c < catalogBlock.length; c++) {
-                catalogBlock[c].classList.add('clear');
-                if (c == g) {
-                    for (let i = g; i < g + 2; i++){
-                        console.log('chge');
-                        catalogBlock[i].classList.remove('clear');
-                        catalogBlock[i].classList.add('visible');
-                        // if(i == g + 2){
-                        //     break;
-                        // }
+            checkSlideList += 2;
+            for (let c = 0; c < catalogBlock.length; c++) {
+                catalogBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
+                if (c == checkSlideList) {
+                    for (let i = checkSlideList; i < checkSlideList + 2; i++) {
+                        catalogBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
+                        catalogBlock[i].classList.add('visible');//добавляет класс -visible- 
                     }
                     break;
                 }
             }
         },
+        slidePrevTransitionStart: function () {
+            checkSlideList -= 2;
+            for (let c = 0; c < catalogBlock.length; c++) {
+                catalogBlock[c].classList.remove('clear');
+                if (c == checkSlideList + 1) {// +1 нужен чтобы на старнице оба слайда были -visible-
+                    for (let i = checkSlideList + 2; i < checkSlideList + 4; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
+                        catalogBlock[i].classList.add('clear');//добавляет класс -clear-
+                        catalogBlock[i].classList.remove('visible');//убираем класс -visible-
+                    }
+                    break;
+                }
+            }
+        }
     },
-
 });
 
 
