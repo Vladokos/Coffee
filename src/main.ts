@@ -1,7 +1,9 @@
 import './style.scss';
 import './teplate.html';
 import Swiper, { Navigation, Pagination } from 'swiper';
-// header
+
+
+// header popup
 let videoBtn = document.querySelector('.videon-btn');
 let videoCloseBtn = document.querySelector('.close-button');
 let videoPlayer = document.querySelector('video');
@@ -9,12 +11,44 @@ let videoPopup = document.getElementById('popupV');
 
 videoBtn?.addEventListener('click', function () {
     videoPopup?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = getScrollbarWidth();
 });
 videoCloseBtn?.addEventListener('click', function () {
     videoPopup?.classList.remove('active');
+    document.body.style.overflow = 'visible';
+    document.body.style.paddingRight = '0px';
     videoPlayer?.pause();
 });
-// header
+
+//scroll get size
+function getScrollbarWidth() {
+
+    // Creating invisible container
+    const outer = document.createElement('div');
+    outer.style.visibility = 'hidden';
+    outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+    document.body.appendChild(outer);
+  
+    // Creating inner element and placing it in the container
+    const inner = document.createElement('div');
+    outer.appendChild(inner);
+  
+    // Calculating difference between container's full width and the child width
+    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth +'px';
+  
+    // Removing temporary elements from the DOM
+    outer.parentNode?.removeChild(outer);
+
+    console.log(scrollbarWidth);
+
+    return scrollbarWidth;
+  
+  }
+//scroll get size
+
+
+// header popup
 
 //slider
 let catalogBlock = document.getElementsByClassName('catalog__block');
@@ -71,7 +105,4 @@ new Swiper('.catalog-items', {
         }
     },
 });
-
-
-
 //slider
