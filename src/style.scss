@@ -267,7 +267,7 @@ body {
         }
         .backcolor {
             width: 384px;
-            height: 894px;
+            height: 856px;
             position: absolute;
             background: #415167;
             z-index: -1;
@@ -334,4 +334,43 @@ body {
         }
     }
 }
+
+.gifts {
+    .gifts-inner {
+        .text {
+            .text__title {
+            }
+            .text__subtitle {
+            }
+        }
+        .toggle {
+            .toggle-items {
+                .slide {
+                }
+                .toggle__item {
+                    display: flex;
+                    .photo {
+                    }
+                    .descr {
+                    }
+                    .descr__price {
+                    }
+                    .descr__title {
+                    }
+                    .descr__composition {
+                    }
+                    .descr-btn {
+                    }
+                    .in__cart {
+                    }
+                    .deetails {
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 
