@@ -338,39 +338,105 @@ body {
 .gifts {
     .gifts-inner {
         .text {
+            text-align: center;
+            @include textMX(600, "Nunito", 20px, #415167, 24px);
+            margin-bottom: 66px;
             .text__title {
             }
             .text__subtitle {
+                font-family: Montserrat;
+                font-weight: 900;
+                line-height: 34px;
             }
         }
         .toggle {
+            
             .toggle-items {
                 .slide {
                 }
                 .toggle__item {
                     display: flex;
+                    width: 882px;
+                    height: 460px;
                     .photo {
+                        position: absolute;
+                        top: 154em;
+                        left: 4em;
                     }
                     .descr {
-                    }
-                    .descr__price {
-                    }
-                    .descr__title {
-                    }
-                    .descr__composition {
-                    }
-                    .descr-btn {
-                    }
-                    .in__cart {
-                    }
-                    .deetails {
+                        @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
+                        background-color: #ffff;
+                        width: 882px;
+                        padding-left: 300px;
+                        .descr__price {
+                            margin-top: 64px;
+                            margin-bottom: 12px;
+                        }
+                        .descr__title {
+                            font-weight: 700;
+                            margin-bottom: 12px;
+                            color: #232c38;
+                        }
+                        .descr__composition {
+                            font-weight: 300;
+                            font-size: 16px;
+                            line-height: 22px;
+                            margin-bottom: 24px;
+                            color: #151d28;
+                        }
+                        .descr__manufactured {
+                            color: #415167;
+                            display: flex;
+                            .coffe {
+                                margin-bottom: 46px;
+                                span {
+                                    font-weight: 300;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                }
+                                margin-right: 38px;
+                                &::before {
+                                    content: "";
+                                    background: url(./assets/img/giftset/coffe.png) no-repeat;
+                                    width: 40px;
+                                    height: 40px;
+                                    margin-right: 12px;
+                                }
+                            }
+                            .mounts {
+                                span {
+                                    font-weight: 300;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                }
+                                &::before {
+                                    content: "";
+                                    background: url(./assets/img/giftset/mounts.png) no-repeat;
+                                    width: 40px;
+                                    height: 40px;
+                                    margin-right: 12px;
+                                }
+                            }
+                        }
+                        .descr-btn {
+                            
+                            .in__cart {
+                                color: #f9fbff;
+                                margin-right: 63px;
+                                background-color: #c7a17a;
+                                padding: 8px 32px 8px 32px;
+                                border-radius: 19px;
+                                font-weight: 700;
+                                font-size: 16px;
+                                line-height: 22px;
+                            }
+                            .deetails {
+                                color: #415167;
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
-
-
-
-
