@@ -106,3 +106,30 @@ new Swiper('.catalog-items', {
     },
 });
 //slider
+
+//toggle
+let oneBtnToggle = document.querySelector('.slide-btn__one');
+let twoBtnToggle = document.querySelector('.slide-btn__two');
+let thridBtnToggle = document.querySelector('.slide-btn__thrid');
+
+
+let oneBlock = document.querySelector('.one');
+let twoBlock = document.querySelector('.two');
+let thridBlock = document.querySelector('.thrid');
+
+oneBtnToggle?.addEventListener('click',function(){
+    oneBlock?.classList.remove('clear');
+    twoBlock?.classList.add('clear');
+    thridBlock?.classList.add('clear');
+});
+twoBtnToggle?.addEventListener('click',function(){
+    oneBlock?.classList.add('clear');
+    twoBlock?.classList.remove('clear');
+    thridBlock?.classList.add('clear');
+});
+thridBtnToggle?.addEventListener('click',function(){
+    oneBlock?.classList.add('clear');
+    twoBlock?.classList.add('clear');
+    thridBlock?.classList.remove('clear');
+});
+//toggle

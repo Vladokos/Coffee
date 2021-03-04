@@ -158,6 +158,7 @@ body {
 }
 //store inf
 
+//catalog slider
 .catalog {
     padding: 90px 0 128px 0;
     .catalog-inner {
@@ -275,11 +276,9 @@ body {
             left: -22em;
         }
         .catalog-items {
-            // flex-shrink: 1;
             .swiper-wrapper {
                 display: flex;
                 margin: 0 -21em 0 -14.5em;
-                // overflow: hidden;
                 .catalog__block {
                     margin-right: 15px;
                     margin-left: 15px;
@@ -334,7 +333,9 @@ body {
         }
     }
 }
+//catalog slider
 
+//gits toggle
 .gifts {
     .gifts-inner {
         .text {
@@ -350,7 +351,6 @@ body {
             }
         }
         .toggle {
-            
             .toggle-items {
                 .slide {
                 }
@@ -358,12 +358,13 @@ body {
                     display: flex;
                     width: 882px;
                     height: 460px;
+                    box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
                     .photo {
                         position: absolute;
-                        top: 154em;
-                        left: 4em;
+                        left: -16.5em;
                     }
                     .descr {
+                        border: 1px solid #edf0f5;
                         @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
                         background-color: #ffff;
                         width: 882px;
@@ -419,7 +420,6 @@ body {
                             }
                         }
                         .descr-btn {
-                            
                             .in__cart {
                                 color: #f9fbff;
                                 margin-right: 63px;
@@ -435,8 +435,128 @@ body {
                             }
                         }
                     }
+                    .slide-btn {
+                        @include textMX(900, "Montserrat", 30px, #415167, 34px);
+                        text-align: center;
+                        border: 1px solid #edf0f5;
+                        .slide-btn__one {
+                            background-color: #ffff;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                        }
+                        .slide-btn__two {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                        .slide-btn__thrid {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                    }
                 }
+                .one {
+                    position: absolute;
+                    z-index: 3;
+                }
+                .two {
+                    position: absolute;
+                    z-index: 2;
+                    .slide-btn {
+                        @include textMX(900, "Montserrat", 30px, #415167, 34px);
+                        text-align: center;
+                        border: 1px solid #edf0f5;
+                        .slide-btn__one {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                        .slide-btn__two {
+                            background-color: #ffff;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 1;
+                            cursor: pointer;
+                        }
+                        .slide-btn__thrid {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .thrid {
+                    position: absolute;
+                    z-index: 1;
+                    .slide-btn {
+                        @include textMX(900, "Montserrat", 30px, #415167, 34px);
+                        text-align: center;
+                        border: 1px solid #edf0f5;
+                        .slide-btn__one {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                        .slide-btn__two {
+                            background-color: #dadada;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 0.4;
+                            cursor: pointer;
+                        }
+                        .slide-btn__thrid {
+                            background-color: #ffff;
+                            height: 154px;
+                            width: 88px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            opacity: 1;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .toggle__item.clear {
+                opacity: 0;
             }
         }
     }
 }
+//gifts toggle
