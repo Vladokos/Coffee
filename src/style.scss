@@ -345,7 +345,8 @@ body {
             .text__title {
             }
             .text__subtitle {
-                font-family: Montserrat;
+                font-family: 'Montserrat';
+                font-size: 30px;
                 font-weight: 900;
                 line-height: 34px;
             }
@@ -369,6 +370,7 @@ body {
                         background-color: #ffff;
                         width: 882px;
                         padding-left: 300px;
+                        padding-right: 64px;
                         .descr__price {
                             margin-top: 64px;
                             margin-bottom: 12px;
@@ -384,6 +386,7 @@ body {
                             line-height: 22px;
                             margin-bottom: 24px;
                             color: #151d28;
+                            width: 443px;
                         }
                         .descr__manufactured {
                             color: #415167;
@@ -439,6 +442,7 @@ body {
                         @include textMX(900, "Montserrat", 30px, #415167, 34px);
                         text-align: center;
                         border: 1px solid #edf0f5;
+                        background: #ffff;
                         .slide-btn__one {
                             background-color: #ffff;
                             height: 154px;
