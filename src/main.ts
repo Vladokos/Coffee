@@ -29,22 +29,22 @@ function getScrollbarWidth() {
     outer.style.visibility = 'hidden';
     outer.style.overflow = 'scroll'; // forcing scrollbar to appear
     document.body.appendChild(outer);
-  
+
     // Creating inner element and placing it in the container
     const inner = document.createElement('div');
     outer.appendChild(inner);
-  
+
     // Calculating difference between container's full width and the child width
-    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth +'px';
-  
+    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth + 'px';
+
     // Removing temporary elements from the DOM
     outer.parentNode?.removeChild(outer);
 
     console.log(scrollbarWidth);
 
     return scrollbarWidth;
-  
-  }
+
+}
 //scroll get size
 
 
@@ -114,22 +114,45 @@ let thridBtnToggle = document.querySelector('.slide-btn__thrid');
 
 
 let oneBlock = document.querySelector('.one');
+oneBlock?.classList.add('active');
 let twoBlock = document.querySelector('.two');
 let thridBlock = document.querySelector('.thrid');
 
-oneBtnToggle?.addEventListener('click',function(){
+
+
+oneBtnToggle?.addEventListener('click', function () {
     oneBlock?.classList.remove('clear');
+    oneBlock?.classList.add('active');
+
+    twoBlock?.classList.remove('active');
     twoBlock?.classList.add('clear');
+
+    thridBlock?.classList.remove('active');
     thridBlock?.classList.add('clear');
 });
-twoBtnToggle?.addEventListener('click',function(){
+twoBtnToggle?.addEventListener('click', function () {
+    oneBlock?.classList.remove('active');
     oneBlock?.classList.add('clear');
+    
     twoBlock?.classList.remove('clear');
+    twoBlock?.classList.add('active');
+    
+    thridBlock?.classList.remove('active');
     thridBlock?.classList.add('clear');
 });
-thridBtnToggle?.addEventListener('click',function(){
+thridBtnToggle?.addEventListener('click', function () {
+    oneBlock?.classList.remove('active');
     oneBlock?.classList.add('clear');
+    
+    twoBlock?.classList.remove('active');
     twoBlock?.classList.add('clear');
+    
     thridBlock?.classList.remove('clear');
+    thridBlock?.classList.add('active');
 });
+
+//textType
+
+//textType
+
 //toggle

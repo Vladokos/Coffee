@@ -345,7 +345,7 @@ body {
             .text__title {
             }
             .text__subtitle {
-                font-family: 'Montserrat';
+                font-family: "Montserrat";
                 font-size: 30px;
                 font-weight: 900;
                 line-height: 34px;
@@ -360,6 +360,7 @@ body {
                     width: 882px;
                     height: 460px;
                     box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
+                    left: 36em;
                     .photo {
                         position: absolute;
                         left: -16.5em;
@@ -477,6 +478,73 @@ body {
                 .one {
                     position: absolute;
                     z-index: 3;
+
+                    .photo {
+                        transform: translate(-120%, 0);
+                        opacity: 0;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 120%);
+                                opacity: 0;
+                            }
+                            .mounts {
+                                transform: translate(0, -120%);
+                                opacity: 0;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, -120%);
+                            opacity: 0;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
+                        }
+                    }
+                }
+                .one.active {
+                    .photo {
+                        transform: translate(0, 0);
+                        opacity: 1;
+                        transition: all 0.8s ease-in-out;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                            .mounts {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, 0);
+                            opacity: 1;
+                            transition: all 0.8s ease-in-out;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
+                        }
+                    }
                 }
                 .two {
                     position: absolute;
@@ -514,6 +582,72 @@ body {
                             justify-content: center;
                             opacity: 0.4;
                             cursor: pointer;
+                        }
+                    }
+                    .photo {
+                        transform: translate(-120%, 0);
+                        opacity: 0;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 120%);
+                                opacity: 0;
+                            }
+                            .mounts {
+                                transform: translate(0, -120%);
+                                opacity: 0;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, -120%);
+                            opacity: 0;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
+                        }
+                    }
+                }
+                .two.active {
+                    .photo {
+                        transform: translate(0, 0);
+                        opacity: 1;
+                        transition: all 0.8s ease-in-out;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                            .mounts {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, 0);
+                            opacity: 1;
+                            transition: all 0.8s ease-in-out;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
                         }
                     }
                 }
@@ -555,11 +689,78 @@ body {
                             cursor: pointer;
                         }
                     }
+                    .photo {
+                        transform: translate(-120%, 0);
+                        opacity: 0;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 120%);
+                                opacity: 0;
+                            }
+                            .mounts {
+                                transform: translate(0, -120%);
+                                opacity: 0;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, -120%);
+                            opacity: 0;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
+                        }
+                    }
+                }
+                .thrid.active {
+                    .photo {
+                        transform: translate(0, 0);
+                        opacity: 1;
+                        transition: all 0.8s ease-in-out;
+                    }
+                    .descr {
+                        .descr__price {
+                        }
+                        .descr__title {
+                        }
+                        .descr__composition {
+                        }
+                        .descr__manufactured {
+                            .coffe {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                            .mounts {
+                                transform: translate(0, 0);
+                                opacity: 1;
+                                transition: all 0.8s ease-in-out;
+                            }
+                        }
+                        .descr-btn {
+                            transform: translate(0, 0);
+                            opacity: 1;
+                            transition: all 0.8s ease-in-out;
+                            .in__cart {
+                            }
+                            .deetails {
+                            }
+                        }
+                    }
                 }
             }
-            .toggle__item.clear {
-                opacity: 0;
-            }
+
+        }
+        .toggle__item.clear {
+            opacity: 0;
         }
     }
 }
