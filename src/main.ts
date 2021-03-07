@@ -53,7 +53,6 @@ function getScrollbarWidth() {
 //slider
 let catalogBlock = document.getElementsByClassName('catalog__block');
 for (let i = 0; i < catalogBlock.length; i++) {
-    console.log(i);
     if (i == 0 || i == 1) {
         catalogBlock[i].classList.add('visible');
     } else {
@@ -108,51 +107,71 @@ new Swiper('.catalog-items', {
 //slider
 
 //toggle
-let oneBtnToggle = document.querySelector('.slide-btn__one');
-let twoBtnToggle = document.querySelector('.slide-btn__two');
-let thridBtnToggle = document.querySelector('.slide-btn__thrid');
+
+let blockItems = document.getElementsByClassName('toggle__item')
+let blockTogle;
+for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {//Нахождение блоков переключателя 
+    if (blockTogle == 0) {
+        blockItems[blockTogle].classList.add('active');
+    } else {
+        blockItems[blockTogle].classList.add('clear');
+    }
+}
 
 
-let oneBlock = document.querySelector('.one');
-oneBlock?.classList.add('active');
-let twoBlock = document.querySelector('.two');
-let thridBlock = document.querySelector('.thrid');
+let oneBtnToggle = document.querySelector('.slide-btn-items__one');
+let twoBtnToggle = document.querySelector('.slide-btn-items__two');
+let thridBtnToggle = document.querySelector('.slide-btn-items__thrid');
 
 
-
+oneBtnToggle?.classList.add('active');
 oneBtnToggle?.addEventListener('click', function () {
-    oneBlock?.classList.remove('clear');
-    oneBlock?.classList.add('active');
+    for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+        if (blockTogle == 0) {
+            blockItems[blockTogle].classList.add('active');
+            blockItems[blockTogle].classList.remove('clear');
 
-    twoBlock?.classList.remove('active');
-    twoBlock?.classList.add('clear');
+            oneBtnToggle?.classList.add('active');
+        } else {
+            blockItems[blockTogle].classList.add('clear');
+            blockItems[blockTogle].classList.remove('active');
 
-    thridBlock?.classList.remove('active');
-    thridBlock?.classList.add('clear');
+            twoBtnToggle?.classList.remove('active');
+            thridBtnToggle?.classList.remove('active');
+        }
+
+    }
 });
 twoBtnToggle?.addEventListener('click', function () {
-    oneBlock?.classList.remove('active');
-    oneBlock?.classList.add('clear');
-    
-    twoBlock?.classList.remove('clear');
-    twoBlock?.classList.add('active');
-    
-    thridBlock?.classList.remove('active');
-    thridBlock?.classList.add('clear');
+    for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+        if (blockTogle == 1) {
+            blockItems[blockTogle].classList.add('active');
+            blockItems[blockTogle].classList.remove('clear');
+
+            twoBtnToggle?.classList.add('active');
+        } else {
+            blockItems[blockTogle].classList.add('clear');
+            blockItems[blockTogle].classList.remove('active');
+
+            oneBtnToggle?.classList.remove('active');
+            thridBtnToggle?.classList.remove('active');
+        }
+    }
 });
 thridBtnToggle?.addEventListener('click', function () {
-    oneBlock?.classList.remove('active');
-    oneBlock?.classList.add('clear');
-    
-    twoBlock?.classList.remove('active');
-    twoBlock?.classList.add('clear');
-    
-    thridBlock?.classList.remove('clear');
-    thridBlock?.classList.add('active');
+    for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+        if (blockTogle == 2) {
+            blockItems[blockTogle].classList.add('active');
+            blockItems[blockTogle].classList.remove('clear');
+
+            thridBtnToggle?.classList.add('active');
+        } else {
+            blockItems[blockTogle].classList.add('clear');
+            blockItems[blockTogle].classList.remove('active');
+
+            oneBtnToggle?.classList.remove('active');
+            twoBtnToggle?.classList.remove('active');
+        }
+    }
 });
-
-//textType
-
-//textType
-
 //toggle
