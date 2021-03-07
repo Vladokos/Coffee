@@ -178,10 +178,10 @@ thridBtnToggle?.addEventListener('click', function () {
 
 //slider combo
 let comoboBlock = document.getElementsByClassName('slider-item');
-for(let i = 0; i < comoboBlock.length; i++){
-    if(i == 0 || i == 1 || i == 2){
+for (let i = 0; i < comoboBlock.length; i++) {
+    if (i == 0 || i == 1 || i == 2) {
         continue;
-    }else{
+    } else {
         comoboBlock[i].classList.add('clear');
     }
 }
@@ -225,3 +225,10 @@ new Swiper('.slider', {
     },
 });
 //slider combo
+function changeWidth() {
+    let a = document.getElementById('slider');
+    if (a) {
+        a.style.width = '1366px';
+    }
+}
+window.setTimeout(changeWidth, 500);
