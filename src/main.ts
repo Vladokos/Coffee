@@ -175,3 +175,53 @@ thridBtnToggle?.addEventListener('click', function () {
     }
 });
 //toggle
+
+//slider combo
+let comoboBlock = document.getElementsByClassName('slider-item');
+for(let i = 0; i < comoboBlock.length; i++){
+    if(i == 0 || i == 1 || i == 2){
+        continue;
+    }else{
+        comoboBlock[i].classList.add('clear');
+    }
+}
+
+let checkComboList = 0;//Проверяет номер стр. слайда
+Swiper.use([Navigation, Pagination]);
+new Swiper('.slider', {
+    slidesPerGroup: 1,
+    grabCursor: true,
+    navigation: {
+        nextEl: '.next-slide-combo',
+        prevEl: '.prev-slide-combo',
+    },
+
+    on: {
+        slideNextTransitionStart: function () {
+            checkComboList += 3;//считает номер слайда
+            for (let c = 0; c < comoboBlock.length; c++) {
+                comoboBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
+                if (c == checkComboList) {
+                    for (let i = checkComboList; i < checkComboList + 3; i++) {
+                        comoboBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
+                    }
+                    break;
+                }
+            }
+        },
+        slidePrevTransitionStart: function () {
+            checkComboList -= 3;
+            for (let c = 0; c < comoboBlock.length; c++) {
+                comoboBlock[c].classList.remove('clear');
+                if (c == checkComboList + 2) {// +1 нужен чтобы на старнице оба слайда были -visible-
+                    for (let i = checkComboList + 3; i < checkComboList + 4; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
+                        comoboBlock[i].classList.add('clear');//добавляет класс -clear-
+                        comoboBlock[i].classList.remove('visible');//убираем класс -visible-
+                    }
+                    break;
+                }
+            }
+        }
+    },
+});
+//slider combo
