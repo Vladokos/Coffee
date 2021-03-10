@@ -75,8 +75,28 @@ body {
                     }
                     .cart {
                         margin-bottom: 122px - 35px;
+                        &::after {
+                            content: "";
+                            transition: all 0.7s ease-in;
+                            transform: scale(0.0) rotate(90deg);
+                        }
                     }
-                    // .cart__active{}
+                    .cart.active {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            background: #c7a17a;
+                            border-radius: 50%;
+                            left: 1359px;
+                            text-align: center;
+                            font-family: "Nunito";
+                            line-height: 20px;
+                            transition: all 0.7s ease-in;
+                            transform: scale(1.0) rotate(0deg);
+                        }
+                    }
                 }
             }
         }
@@ -583,7 +603,7 @@ body {
 .combo {
     padding: 88px 0 128px;
     .combo-inner {
-        &::after{
+        &::after {
             content: "";
             width: 637px;
             height: 942px;
