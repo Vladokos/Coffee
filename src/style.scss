@@ -61,6 +61,11 @@ body {
             padding: 76px 0 0 0;
             .menu {
                 .menu__list {
+                    .cart__number {
+                        position: absolute;
+                        top: 74px;
+                        right: 529px;
+                    }
                     li {
                         margin-bottom: 35px;
                         @include textMX(400, "Nunito", 16px, #edf0f5, 24px);
@@ -78,7 +83,7 @@ body {
                         &::after {
                             content: "";
                             transition: all 0.7s ease-in;
-                            transform: scale(0.0) rotate(90deg);
+                            transform: scale(0) rotate(90deg);
                         }
                     }
                     .cart.active {
@@ -94,7 +99,7 @@ body {
                             font-family: "Nunito";
                             line-height: 20px;
                             transition: all 0.7s ease-in;
-                            transform: scale(1.0) rotate(0deg);
+                            transform: scale(1) rotate(0deg);
                         }
                     }
                 }
@@ -329,11 +334,14 @@ body {
                             .cart-btn {
                                 margin-right: 49px;
                                 .in__cart {
+                                    cursor: pointer;
                                     border-radius: 19px;
                                     background: #c7a17a;
                                     @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
                                     margin-right: 29px;
                                     padding: 8px 17px;
+                                    outline: none;
+                                    border: 0;
                                 }
                                 .deetails {
                                     @include textMX(700, "Nunito", 16px, #415167, 22px);

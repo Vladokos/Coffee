@@ -82,7 +82,7 @@ new Swiper('.catalog-items', {
                 catalogBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
                 if (c == checkSlideList) {
                     if (c == 2) {
-                        changeWidth('catalog-items', 1290,200);
+                        changeWidth('catalog-items', 1290, 200);
                     }
                     for (let i = checkSlideList; i < checkSlideList + 2; i++) {
                         catalogBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
@@ -98,7 +98,7 @@ new Swiper('.catalog-items', {
                 catalogBlock[c].classList.remove('clear');
                 if (c == checkSlideList + 1) {// +1 нужен чтобы на старнице оба слайда были -visible-
                     if (c == 1) {
-                        changeWidth('catalog-items', 1260,200);
+                        changeWidth('catalog-items', 1260, 200);
                     }
                     for (let i = checkSlideList + 2; i < checkSlideList + 4; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
                         catalogBlock[i].classList.add('clear');//добавляет класс -clear-
@@ -110,7 +110,7 @@ new Swiper('.catalog-items', {
         }
     },
 });
-changeWidth('catalog-items', 1260,500);
+changeWidth('catalog-items', 1260, 500);
 //slider
 
 //toggle
@@ -249,30 +249,61 @@ function changeWidth(name: string, widh: number, speedReload: number) {
 //achors
 let achors = document.querySelectorAll('a[href*="#"]');
 
-for(let achor of achors as any){
-    achor.addEventListener('click',function(event: { preventDefault: any; }){
+for (let achor of achors as any) {
+    achor.addEventListener('click', function (event: { preventDefault: any; }) {
         event.preventDefault();
         let blockId = achor.getAttribute('href');
         document.querySelector('' + blockId)?.scrollIntoView({
-            behavior:'smooth',
-            block:'start'
+            behavior: 'smooth',
+            block: 'start'
         });
     });
 }
 //achors
 
 //cart
-// let cart = document.querySelector('.cart');
-// let btnInCart = document.querySelectorAll('.in__cart') as any;
-// console.log(btnInCart);
+let cart = document.querySelector('.cart');
+let cartNumb = document.getElementById('cart__number');
+let btnInCart = document.querySelectorAll('.in__cart');
 
-// let product = 0;
-// if(btnInCart){
-//     btnInCart?.addEventListener('click',function(){
-//         console.log('asd');
-//         cart?.classList.add('active');
-//         product++;
-//         cart?.innerHTML == product.toString();
-//     });
+let product = 0;
+// btnInCart?.addEventListener('click', function () {
+//     console.log('asd');
+//     cart?.classList.add('active');
+//     product++;
+//     console.log(product);
+//     cartNumb?.innerHTML = product.toString();
+// });
+
+let allBtn = new Array();
+for (let i = 0; i < btnInCart.length; i++) {
+    allBtn.push(btnInCart[i]);
+}
+
+for (const btnInCarts of btnInCart as any) {
+    btnInCarts.addEventListener("click", function () {
+        cart?.classList.add('active');
+        product++;
+        cartNumb?.innerHTML = product.toString();
+        // console.log(allBtn[1]);
+    });
+}
+// declare global {
+//     interface Window { checkClick(): any; }
+// }
+// window.checkClick = function checkClick() {
+//     cart?.classList.add('active');
+//     product++;
+//     console.log(product);
+//     cartNumb?.innerHTML = product.toString();
+// }
+
+// function checkClick() {
+//     // console.log(allBtn);
+//     // console.log('asd');
+//     cart?.classList.add('active');
+//     product++;
+//     console.log(product);
+//     cartNumb?.innerHTML = product.toString();
 // }
 //cart
