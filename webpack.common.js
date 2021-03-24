@@ -92,7 +92,12 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/teplate.html'
+            filename: 'index.html',
+            template: './src/index.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'store.html',
+            template: './src/store.html'
         }),
     ],
     resolve: {

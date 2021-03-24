@@ -804,3 +804,88 @@ body {
     padding: 18px 0 20px;
 }
 //footer
+
+//carts page
+.container {
+    max-width: 1206px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.back {
+    a {
+        &::after {
+            content: "";
+            background-color: #000;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            width: 40px;
+            margin-top: 20px;
+            margin-left: 20px;
+            transform: rotateZ(147deg);
+            height: 2px;
+        }
+
+        &::before {
+            content: "";
+            background-color: #000;
+            position: absolute;
+            transition: transform 0.6s ease-in-out;
+            width: 40px;
+            margin-top: 20px;
+            margin-left: 20px;
+            transform: translate(2px) rotate(45deg);
+            height: 2px;
+        }
+        &:hover::after {
+            content: "";
+            transition: transform 0.6s ease-in-out;
+            transform: rotateZ(130deg);
+        }
+        &:hover::before {
+            content: "";
+            transition: transform 0.6s ease-in-out;
+            transform: translate(0px) rotate(45deg);
+        }
+    }
+}
+.header-store {
+    background: #f9fbff;
+    h1 {
+        text-align: center;
+        @include textMX(900, "Montserrat", 44px, #415167, 70px);
+    }
+}
+.order {
+    .order-inner {
+        .order-items {
+            .item {
+                display: flex;
+                .item-photo {
+                }
+                .item__text {
+                    @include textMX(600, "Nunito", 16px, #151d28, 16px);
+                    display: flex;
+                    justify-content: space-between;
+                    .item-quantity {
+                        
+                        .item-btn {
+                            .btn-plus {
+                            }
+                            .btn-minus {
+                            }
+                        }
+                    }
+                    .item-name {
+                    }
+                    .item-price {
+                    }
+                    .item-total {
+                    }
+                }
+            }
+        }
+    }
+    .totalPrice {
+    }
+}
+//carts page

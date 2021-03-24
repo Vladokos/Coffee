@@ -1,5 +1,5 @@
 import './style.scss';
-import './teplate.html';
+import './index.html';
 import Swiper, { Navigation, Pagination } from 'swiper';
 
 
@@ -262,79 +262,79 @@ for (let achor of achors as any) {
 //achors
 
 //cart
-const carts:{[key: string]: any} = {
-   'xz1':{
-    "name":"REVO Morning",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 99.000
-   },
-   'xz2':{
-    "name":"REVO Origin",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 139.000
-   },
-   'xz3':{
-    "name":"REVO Everyday",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 85.000
-   },
-   'xz4':{
-    "name":"REVO Đậm Đà",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 75.000
-   },
-   'xz5':{
-    "name":"REVO Honey",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 195.000
-   },
-   'xz6':{
-    "name":"REVO Natural",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 169.000
-   },
-   'xz7':{
-    "name":"REVO Honey",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 99.000
-   },
-   'xz8':{
-    "name":"REVO Natural",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 169.000
-   },
-   'xz9':{
-    "name":"REVO Honey",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 99.000
-   },
-   'xz10':{
-    "name":"REVO Natural",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 169.000
-   },
-   'xz11':{
-    "name":"REVO Honey",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 99.000
-   },
-   'xz12':{
-    "name":"REVO Natural",
-    "imgae":"./dist/images/",
-    "count": 0,
-    "price": 169.000
-   },
+const carts: { [key: string]: any } = {
+    'xz1': {
+        "name": "REVO Morning",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 99.000
+    },
+    'xz2': {
+        "name": "REVO Origin",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 139.000
+    },
+    'xz3': {
+        "name": "REVO Everyday",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 85.000
+    },
+    'xz4': {
+        "name": "REVO Đậm Đà",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 75.000
+    },
+    'xz5': {
+        "name": "REVO Honey",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 195.000
+    },
+    'xz6': {
+        "name": "REVO Natural",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 169.000
+    },
+    'xz7': {
+        "name": "REVO Honey",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 99.000
+    },
+    'xz8': {
+        "name": "REVO Natural",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 169.000
+    },
+    'xz9': {
+        "name": "REVO Honey",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 99.000
+    },
+    'xz10': {
+        "name": "REVO Natural",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 169.000
+    },
+    'xz11': {
+        "name": "REVO Honey",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 99.000
+    },
+    'xz12': {
+        "name": "REVO Natural",
+        "imgae": "./dist/images/",
+        "count": 0,
+        "price": 169.000
+    },
 };
 let cart = document.querySelector('.cart');
 let cartNumb = document.getElementById('cart__number');
@@ -348,17 +348,17 @@ for (const btnInCarts of btnInCart as any) {
     btnInCarts.addEventListener("click", function (event: { target: { dataset: { id: string | number; }; }; }) {
         cart?.classList.add('active');
         product++;
-        cartNumb?.innerHTML = product.toString();
+        // cartNumb?.innerHTML = product.toString();
         plusCart(event.target.dataset.id);
-        
+
     });
 }
-const plusCart = function (id: string | number){
+const plusCart = function (id: string | number) {
     carts[id]['count']++;
     renderCart();
 }
 
-const renderCart = function(){
+const renderCart = function () {
     console.log(carts);
 }
 
