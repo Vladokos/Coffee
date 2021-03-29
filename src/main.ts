@@ -63,12 +63,16 @@ for (let i = 0; i < catalogBlock.length; i++) {
 let checkSlideList = 0;//Проверяет номер стр. слайда
 let slideOffsetAft = -780;
 let slidesOffsetBef = 200;
+let spBetn = -630;
+if (window.matchMedia("(max-width: 1225px)").matches) {
+    spBetn = -550;
+}
 Swiper.use([Navigation, Pagination]);
 new Swiper('.catalog-items', {
     slidesPerGroup: 2,
     slidesOffsetBefore: slidesOffsetBef,
     slidesOffsetAfter: slideOffsetAft,
-    spaceBetween: -630,
+    spaceBetween: spBetn,
     grabCursor: true,
     navigation: {
         nextEl: '.next-slide',
@@ -233,12 +237,22 @@ new Swiper('.slider', {
 });
 changeWidth('slider', 1305, 500);
 let marginSlide = document.getElementById('slider');
-function changeMarginSlider(){
-    if(marginSlide){
-        marginSlide.style.margin = '0px 0px 0px -55px'
+function changeMarginSlider() {
+    if (window.matchMedia("(max-width: 1360px)").matches) {
+        if (marginSlide) {
+            marginSlide.style.margin = '0px 0px 0px 0px';
+            console.log('sa');
+        }
     }
+    else {
+        if (marginSlide) {
+            marginSlide.style.margin = '0px 0px 0px -55px';
+            console.log('sad');
+        }
+    }
+
 }
-window.setTimeout(changeMarginSlider, 500);
+window.setTimeout(changeMarginSlider, 501);
 
 //slider combo
 
@@ -247,8 +261,17 @@ function changeWidth(name: string, widh: number, speedReload: number) {
     window.setTimeout(change, speedReload);
     function change() {
         let slider = document.getElementById('' + name);
-        if (slider) {
-            slider.style.width = widh + 'px';
+        if (window.matchMedia("(max-width: 1360px)").matches) {
+            if (slider) {
+                slider.style.width = '';
+                console.log('sfg');
+            }
+        }
+        else {
+            if (slider) {
+
+                slider.style.width = widh + 'px';
+            }
         }
     }
 }

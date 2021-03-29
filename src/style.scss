@@ -1,5 +1,4 @@
 @import "reset.scss";
-@import "media.scss";
 @import "../node_modules/swiper/swiper-bundle.css";
 
 body {
@@ -921,3 +920,4 @@ body {
     }
 }
 //carts page
+@import "media.scss";
