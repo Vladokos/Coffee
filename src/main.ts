@@ -231,7 +231,15 @@ new Swiper('.slider', {
         }
     },
 });
-changeWidth('slider', 1366, 500);
+changeWidth('slider', 1305, 500);
+let marginSlide = document.getElementById('slider');
+function changeMarginSlider(){
+    if(marginSlide){
+        marginSlide.style.margin = '0px 0px 0px -55px'
+    }
+}
+window.setTimeout(changeMarginSlider, 500);
+
 //slider combo
 
 //slider change view

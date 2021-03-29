@@ -1,4 +1,5 @@
 @import "reset.scss";
+@import "media.scss";
 @import "../node_modules/swiper/swiper-bundle.css";
 
 body {
@@ -211,16 +212,6 @@ body {
             cursor: pointer;
             z-index: 2;
             cursor: pointer;
-            .prop {
-                position: absolute;
-                top: 23px;
-                width: 24px;
-                height: 3px;
-                background-color: #fff;
-                left: 13px;
-                display: block;
-                border-radius: 20px;
-            }
             &::after {
                 content: "";
                 position: absolute;
@@ -258,16 +249,6 @@ body {
             cursor: pointer;
             z-index: 2;
             cursor: pointer;
-            .prop {
-                position: absolute;
-                top: 23px;
-                width: 24px;
-                height: 3px;
-                background-color: #fff;
-                left: 13px;
-                display: block;
-                border-radius: 20px;
-            }
             &::after {
                 content: "";
                 position: absolute;
@@ -298,7 +279,7 @@ body {
             background: #415167;
             z-index: -1;
             top: 0;
-            left: -22em;
+            left: -9.5em;
         }
         .catalog-items {
             .swiper-wrapper {
@@ -365,9 +346,10 @@ body {
 
 //gits toggle
 .gifts {
-    height: 591px;
+    // height: 591px;
     padding: 86px 0 125px;
     .gifts-inner {
+        position: relative;
         .text {
             text-align: center;
             @include textMX(600, "Nunito", 20px, #415167, 24px);
@@ -383,13 +365,13 @@ body {
         }
         &::after {
             content: "";
-            width: 1266px;
+            width: 1076px;
             height: 802px;
             background-color: #edf0f5;
             position: absolute;
-            z-index: -1;
-            left: 0;
-            top: 143.5em;
+            z-index: -2;
+            left: -9.5em;
+            top: -8.5em;
         }
         .toggle {
             .toggle-items {
@@ -401,7 +383,7 @@ body {
                     width: 882px;
                     height: 462px;
                     box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
-                    left: 36em;
+                    margin: 0 0 0 211px;
                     .photo {
                         position: absolute;
                         left: -16.5em;
@@ -500,9 +482,9 @@ body {
                     text-align: center;
                     border: 1px solid #edf0f5;
                     background: #ffff;
-                    position: absolute;
-                    left: 76.5%;
+                    margin: 0 0 0 1093px;
                     height: 460px;
+                    max-width: 88px;
                     overflow: hidden;
 
                     .slide-btn-items__one {
@@ -554,6 +536,7 @@ body {
             .toggle__item.active {
                 position: absolute;
                 visibility: visible;
+                z-index: -1;
                 .photo {
                     transform: translate(0, 0);
                     opacity: 1;
@@ -611,15 +594,16 @@ body {
 .combo {
     padding: 88px 0 128px;
     .combo-inner {
+        position: relative;
         &::after {
             content: "";
-            width: 637px;
-            height: 942px;
+            width: 326px;
+            height: 979px;
             background-color: #415167;
             position: absolute;
             z-index: -1;
-            right: 0px;
-            top: 155em;
+            right: -2.2em;
+            top: -6.8em;
         }
         @include textMX(600, "Nunito", 20px, #415167, 24px);
         .title {
@@ -638,7 +622,7 @@ body {
                 background-color: #c7a17a;
                 border: none;
                 top: 20em;
-                left: 87em;
+                left: 82em;
                 position: absolute;
                 width: 48px;
                 height: 48px;
@@ -646,16 +630,6 @@ body {
                 cursor: pointer;
                 z-index: 2;
                 cursor: pointer;
-                .prop {
-                    position: absolute;
-                    top: 23px;
-                    width: 24px;
-                    height: 3px;
-                    background-color: #fff;
-                    left: 13px;
-                    display: block;
-                    border-radius: 20px;
-                }
                 &::after {
                     content: "";
                     position: absolute;
@@ -685,7 +659,7 @@ body {
                 background-color: #c7a17a;
                 border: none;
                 top: 20em;
-                left: -5em;
+                left: -8em;
                 position: absolute;
                 width: 48px;
                 height: 48px;
@@ -693,16 +667,6 @@ body {
                 cursor: pointer;
                 z-index: 2;
                 cursor: pointer;
-                .prop {
-                    position: absolute;
-                    top: 23px;
-                    width: 24px;
-                    height: 3px;
-                    background-color: #fff;
-                    left: 13px;
-                    display: block;
-                    border-radius: 20px;
-                }
                 &::after {
                     content: "";
                     position: absolute;
@@ -730,6 +694,7 @@ body {
         .slider {
             // width: 1267px;
             overflow: hidden;
+
             .slider-items {
                 display: flex;
                 .slide-block {
@@ -888,7 +853,7 @@ body {
                                 width: 30px;
                                 border-radius: 10px;
                             }
-                            span{
+                            span {
                                 color: #151d28;
                             }
                             .btn-minus {
