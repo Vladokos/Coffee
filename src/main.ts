@@ -64,12 +64,21 @@ let checkSlideList = 0;//Проверяет номер стр. слайда
 let slideOffsetAft = -780;
 let slidesOffsetBef = 200;
 let spBetn = -630;
+let slidePerGroup = 2;
+let checkSlideActive = 0;
 if (window.matchMedia("(max-width: 1225px)").matches) {
     spBetn = -550;
+    if (window.matchMedia("(max-width: 1080px)").matches) {
+        spBetn = 0;
+        slidePerGroup = 1;
+        slideOffsetAft = -400;
+        slidesOffsetBef = 400;
+        checkSlideActive = 2;
+    }
 }
 Swiper.use([Navigation, Pagination]);
 new Swiper('.catalog-items', {
-    slidesPerGroup: 2,
+    slidesPerGroup: slidePerGroup,
     slidesOffsetBefore: slidesOffsetBef,
     slidesOffsetAfter: slideOffsetAft,
     spaceBetween: spBetn,
@@ -84,11 +93,11 @@ new Swiper('.catalog-items', {
             checkSlideList += 2;
             for (let c = 0; c < catalogBlock.length; c++) {
                 catalogBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
-                if (c == checkSlideList) {
+                if (c == checkSlideList || checkSlideActive == 2) {
                     if (c == 2) {
                         changeWidth('catalog-items', 1290, 200);
                     }
-                    for (let i = checkSlideList; i < checkSlideList + 2; i++) {
+                    for (let i = checkSlideList - checkSlideActive; i < checkSlideList + 2; i++) {
                         catalogBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
                         catalogBlock[i].classList.add('visible');//добавляет класс -visible- 
                     }
@@ -198,9 +207,24 @@ for (let i = 0; i < comoboBlock.length; i++) {
 }
 
 let checkComboList = 0;//Проверяет номер стр. слайда
+let slidesPreGroups = 3;
+let slidesPrevViews = 3;
+let checkSlideClear = 3;
+let removeClear = 0;
+let spaceBetweens = 0;
+if (window.matchMedia("(max-width: 1080px)").matches) {
+    slidesPreGroups = 2;
+    slidesPrevViews = 2;
+    checkComboList = -1;
+    checkSlideClear = 4;
+    removeClear = 2;
+    spaceBetweens = -55;
+}
 Swiper.use([Navigation, Pagination]);
 new Swiper('.slider', {
-    slidesPerGroup: 1,
+    slidesPerGroup: slidesPreGroups,
+    slidesPerView: slidesPrevViews,
+    spaceBetween: spaceBetweens,
     grabCursor: true,
     navigation: {
         nextEl: '.next-slide-combo',
@@ -212,8 +236,14 @@ new Swiper('.slider', {
             checkComboList += 3;//считает номер слайда
             for (let c = 0; c < comoboBlock.length; c++) {
                 comoboBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
+                comoboBlock[8].classList.remove('clear');
+                comoboBlock[7].classList.remove('clear');
                 if (c == checkComboList) {
-                    for (let i = checkComboList; i < checkComboList + 3; i++) {
+                    for (let i = checkComboList - removeClear; i < checkComboList + checkSlideClear - removeClear; i++) {
+                        if (i >= 9) {
+                            comoboBlock[8].classList.remove('clear');
+                            break;
+                        }
                         comoboBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
                     }
                     break;
@@ -225,7 +255,7 @@ new Swiper('.slider', {
             for (let c = 0; c < comoboBlock.length; c++) {
                 comoboBlock[c].classList.remove('clear');
                 if (c == checkComboList + 2) {// +1 нужен чтобы на старнице оба слайда были -visible-
-                    for (let i = checkComboList + 3; i < checkComboList + 4; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
+                    for (let i = checkComboList + 3; i < checkComboList + checkSlideClear + 1; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
                         comoboBlock[i].classList.add('clear');//добавляет класс -clear-
                         comoboBlock[i].classList.remove('visible');//убираем класс -visible-
                     }
@@ -293,80 +323,6 @@ for (let achor of achors as any) {
 //achors
 
 //cart
-const carts: { [key: string]: any } = {
-    'xz1': {
-        "name": "REVO Morning",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 99.000
-    },
-    'xz2': {
-        "name": "REVO Origin",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 139.000
-    },
-    'xz3': {
-        "name": "REVO Everyday",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 85.000
-    },
-    'xz4': {
-        "name": "REVO Đậm Đà",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 75.000
-    },
-    'xz5': {
-        "name": "REVO Honey",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 195.000
-    },
-    'xz6': {
-        "name": "REVO Natural",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 169.000
-    },
-    'xz7': {
-        "name": "REVO Honey",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 99.000
-    },
-    'xz8': {
-        "name": "REVO Natural",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 169.000
-    },
-    'xz9': {
-        "name": "REVO Honey",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 99.000
-    },
-    'xz10': {
-        "name": "REVO Natural",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 169.000
-    },
-    'xz11': {
-        "name": "REVO Honey",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 99.000
-    },
-    'xz12': {
-        "name": "REVO Natural",
-        "imgae": "./dist/images/",
-        "count": 0,
-        "price": 169.000
-    },
-};
 let cart = document.querySelector('.cart');
 let cartNumb = document.getElementById('cart__number');
 let btnInCart = document.querySelectorAll('.in__cart');
@@ -376,21 +332,12 @@ let product = 0;
 
 
 for (const btnInCarts of btnInCart as any) {
-    btnInCarts.addEventListener("click", function (event: { target: { dataset: { id: string | number; }; }; }) {
+    btnInCarts.addEventListener("click", function () {
         cart?.classList.add('active');
         product++;
         // cartNumb?.innerHTML = product.toString();
-        plusCart(event.target.dataset.id);
 
     });
-}
-const plusCart = function (id: string | number) {
-    carts[id]['count']++;
-    renderCart();
-}
-
-const renderCart = function () {
-    console.log(carts);
 }
 
 //cart
