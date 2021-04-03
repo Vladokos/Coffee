@@ -75,6 +75,9 @@ if (window.matchMedia("(max-width: 1225px)").matches) {
         slidesOffsetBef = 400;
         checkSlideActive = 2;
     }
+    if (window.matchMedia("(max-width: 840px)").matches) {
+        slidesOffsetBef = 300;
+    }
 }
 Swiper.use([Navigation, Pagination]);
 new Swiper('.catalog-items', {
@@ -218,7 +221,7 @@ if (window.matchMedia("(max-width: 1080px)").matches) {
     checkComboList = -1;
     checkSlideClear = 4;
     removeClear = 2;
-    spaceBetweens = -55;
+    spaceBetweens = 0;
 }
 Swiper.use([Navigation, Pagination]);
 new Swiper('.slider', {
