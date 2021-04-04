@@ -76,7 +76,8 @@ if (window.matchMedia("(max-width: 1225px)").matches) {
         checkSlideActive = 2;
     }
     if (window.matchMedia("(max-width: 840px)").matches) {
-        slidesOffsetBef = 300;
+        slideOffsetAft = 0;
+        slidesOffsetBef = 0;
     }
 }
 Swiper.use([Navigation, Pagination]);
@@ -222,6 +223,14 @@ if (window.matchMedia("(max-width: 1080px)").matches) {
     checkSlideClear = 4;
     removeClear = 2;
     spaceBetweens = 0;
+    if (window.matchMedia("(max-width: 710px)").matches) {
+        slidesPreGroups = 1;
+        slidesPrevViews = 1;
+        checkComboList = -1;
+        checkSlideClear = 4;
+        removeClear = 4;
+        spaceBetweens = 0;
+    }
 }
 Swiper.use([Navigation]);
 new Swiper('.slider', {
@@ -238,6 +247,13 @@ new Swiper('.slider', {
         slideNextTransitionStart: function () {
             checkComboList += 3;//считает номер слайда
             for (let c = 0; c < comoboBlock.length; c++) {
+                if (window.matchMedia("(max-width: 710px)").matches) {
+                    for (let i = 0; i < 9; i++) {
+
+                        comoboBlock[i].classList.remove('clear');
+                    }
+                    break;
+                }
                 comoboBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
                 comoboBlock[8].classList.remove('clear');
                 comoboBlock[7].classList.remove('clear');
@@ -247,7 +263,6 @@ new Swiper('.slider', {
                             comoboBlock[8].classList.remove('clear');
                             break;
                         }
-                        comoboBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
                     }
                     break;
                 }
@@ -335,7 +350,7 @@ let product = 0;
 
 
 for (const btnInCarts of btnInCart as any) {
-    btnInCarts.addEventListener("click", function () {
+    btnInCarts.addEventListener('click', function () {
         cart?.classList.add('active');
         product++;
         // cartNumb?.innerHTML = product.toString();
@@ -344,4 +359,22 @@ for (const btnInCarts of btnInCart as any) {
 }
 
 //cart
+//window
+if (window.matchMedia("(max-width: 710px)").matches) {
+    let bar = document.getElementById('btn-menu');
+    let burge = document.getElementById('right-menu');
+    let check = 0
 
+    bar?.addEventListener('click', function () {
+        if (check == 0) {
+            burge?.classList.add('active');
+            check++;
+            document.body.style.overflowX = 'hidden';
+        } else {
+            burge?.classList.remove('active');
+            check--;
+            document.body.style.overflowX = 'visible';
+        }
+    });
+}
+//window
