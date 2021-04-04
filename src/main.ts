@@ -223,7 +223,7 @@ if (window.matchMedia("(max-width: 1080px)").matches) {
     removeClear = 2;
     spaceBetweens = 0;
 }
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation]);
 new Swiper('.slider', {
     slidesPerGroup: slidesPreGroups,
     slidesPerView: slidesPrevViews,
