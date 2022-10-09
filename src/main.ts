@@ -1,13 +1,6 @@
-import './style.scss';
-import './index.html';
-import Swiper, { Navigation, Pagination } from 'swiper';
-
-
-
-
-
-
-
+import "./style.scss";
+import "./index.html";
+import Swiper, { Navigation, Pagination } from "swiper";
 
 //slider
 // let catalogBlock = document.getElementsByClassName('catalog__block');
@@ -62,7 +55,7 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 //                     }
 //                     for (let i = checkSlideList - checkSlideActive; i < checkSlideList + 2; i++) {
 //                         catalogBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
-//                         catalogBlock[i].classList.add('visible');//добавляет класс -visible- 
+//                         catalogBlock[i].classList.add('visible');//добавляет класс -visible-
 //                     }
 //                     break;
 //                 }
@@ -91,71 +84,95 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 
 // //toggle
 
-// let blockItems = document.getElementsByClassName('toggle__item')
+const toggle__item = document.getElementsByClassName(
+  "toggle__item"
+) as HTMLCollectionOf<HTMLDivElement>;
+const slide__btn = document.getElementsByClassName(
+  "slide-btn"
+) as HTMLCollectionOf<HTMLDivElement>;
+
+toggle__item[0].classList.add("active");
+for (let i = 1; i < toggle__item.length; i++) {
+  toggle__item[i].classList.add("clear");
+}
+
+slide__btn[0].classList.add("active");
+for (let i = 0; i < slide__btn.length; i++) {
+  slide__btn[i].addEventListener("click", () => {
+    for (let j = 0; j < slide__btn.length; j++) {
+      toggle__item[j].classList.remove("active");
+      toggle__item[j].classList.add("clear");
+
+      slide__btn[j].classList.remove("active");
+      slide__btn[j].classList.add("clear");
+    }
+    toggle__item[i].classList.remove("clear");
+    toggle__item[i].classList.add("active");
+
+    slide__btn[i].classList.remove("clear");
+    slide__btn[i].classList.add("active");
+  });
+}
+
+// const blockItems = document.getElementsByClassName("toggle__item");
 // let blockTogle;
-// for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {//Нахождение блоков переключателя 
-//     if (blockTogle == 0) {
-//         blockItems[blockTogle].classList.add('active');
-//     } else {
-//         blockItems[blockTogle].classList.add('clear');
-//     }
+// for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+//   //Нахождение блоков переключателя
+//   if (blockTogle == 0) {
+//     blockItems[blockTogle].classList.add("active");
+//   } else {
+//     blockItems[blockTogle].classList.add("clear");
+//   }
 // }
 
+// oneBtnToggle?.classList.add("active");
+// oneBtnToggle?.addEventListener("click", function () {
+//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+//     if (blockTogle == 0) {
+//       blockItems[blockTogle].classList.add("active");
+//       blockItems[blockTogle].classList.remove("clear");
 
-// let oneBtnToggle = document.querySelector('.slide-btn-items__one');
-// let twoBtnToggle = document.querySelector('.slide-btn-items__two');
-// let thridBtnToggle = document.querySelector('.slide-btn-items__thrid');
+//       oneBtnToggle?.classList.add("active");
+//     } else {
+//       blockItems[blockTogle].classList.add("clear");
+//       blockItems[blockTogle].classList.remove("active");
 
-
-// oneBtnToggle?.classList.add('active');
-// oneBtnToggle?.addEventListener('click', function () {
-//     for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//         if (blockTogle == 0) {
-//             blockItems[blockTogle].classList.add('active');
-//             blockItems[blockTogle].classList.remove('clear');
-
-//             oneBtnToggle?.classList.add('active');
-//         } else {
-//             blockItems[blockTogle].classList.add('clear');
-//             blockItems[blockTogle].classList.remove('active');
-
-//             twoBtnToggle?.classList.remove('active');
-//             thridBtnToggle?.classList.remove('active');
-//         }
-
+//       twoBtnToggle?.classList.remove("active");
+//       thridBtnToggle?.classList.remove("active");
 //     }
+//   }
 // });
-// twoBtnToggle?.addEventListener('click', function () {
-//     for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//         if (blockTogle == 1) {
-//             blockItems[blockTogle].classList.add('active');
-//             blockItems[blockTogle].classList.remove('clear');
+// twoBtnToggle?.addEventListener("click", function () {
+//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+//     if (blockTogle == 1) {
+//       blockItems[blockTogle].classList.add("active");
+//       blockItems[blockTogle].classList.remove("clear");
 
-//             twoBtnToggle?.classList.add('active');
-//         } else {
-//             blockItems[blockTogle].classList.add('clear');
-//             blockItems[blockTogle].classList.remove('active');
+//       twoBtnToggle?.classList.add("active");
+//     } else {
+//       blockItems[blockTogle].classList.add("clear");
+//       blockItems[blockTogle].classList.remove("active");
 
-//             oneBtnToggle?.classList.remove('active');
-//             thridBtnToggle?.classList.remove('active');
-//         }
+//       oneBtnToggle?.classList.remove("active");
+//       thridBtnToggle?.classList.remove("active");
 //     }
+//   }
 // });
-// thridBtnToggle?.addEventListener('click', function () {
-//     for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//         if (blockTogle == 2) {
-//             blockItems[blockTogle].classList.add('active');
-//             blockItems[blockTogle].classList.remove('clear');
+// thridBtnToggle?.addEventListener("click", function () {
+//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
+//     if (blockTogle == 2) {
+//       blockItems[blockTogle].classList.add("active");
+//       blockItems[blockTogle].classList.remove("clear");
 
-//             thridBtnToggle?.classList.add('active');
-//         } else {
-//             blockItems[blockTogle].classList.add('clear');
-//             blockItems[blockTogle].classList.remove('active');
+//       thridBtnToggle?.classList.add("active");
+//     } else {
+//       blockItems[blockTogle].classList.add("clear");
+//       blockItems[blockTogle].classList.remove("active");
 
-//             oneBtnToggle?.classList.remove('active');
-//             twoBtnToggle?.classList.remove('active');
-//         }
+//       oneBtnToggle?.classList.remove("active");
+//       twoBtnToggle?.classList.remove("active");
 //     }
+//   }
 // });
 // //toggle
 
@@ -261,9 +278,9 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 // }
 // window.setTimeout(changeMarginSlider, 501);
 
-// //slider combo
+// // //slider combo
 
-// //slider change view
+// // //slider change view
 // function changeWidth(name: string, widh: number, speedReload: number) {
 //     window.setTimeout(change, speedReload);
 //     function change() {
@@ -306,8 +323,6 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 
 // let product = 0;
 
-
-
 // for (const btnInCarts of btnInCart as any) {
 //     btnInCarts.addEventListener('click', function () {
 //         cart?.classList.add('active');
@@ -317,8 +332,8 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 //     });
 // }
 
-// //cart
-// //window
+// // //cart
+// // window
 // if (window.matchMedia("(max-width: 710px)").matches) {
 //     let bar = document.getElementById('btn-menu');
 //     let burge = document.getElementById('right-menu');
@@ -336,4 +351,4 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 //         }
 //     });
 // }
-// //window
+// // //window
