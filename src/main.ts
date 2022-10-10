@@ -3,86 +3,18 @@ import "./index.html";
 import Swiper, { Navigation, Pagination } from "swiper";
 
 //slider
-// let catalogBlock = document.getElementsByClassName('catalog__block');
-// for (let i = 0; i < catalogBlock.length; i++) {
-//     if (i == 0 || i == 1) {
-//         catalogBlock[i].classList.add('visible');
-//     } else {
-//         catalogBlock[i].classList.add('clear');
-//     }
+const catalog: Swiper = new Swiper(".swiper", {
+  modules: [Navigation, Pagination],
+  navigation: {
+    nextEl: ".next-slide",
+    prevEl: ".prev-slide",
+  },
+  loop: true,
+});
 
-// }
-// let checkSlideList = 0;//Проверяет номер стр. слайда
-// let slideOffsetAft = -780;
-// let slidesOffsetBef = 200;
-// let spBetn = -630;
-// let slidePerGroup = 2;
-// let checkSlideActive = 0;
-// if (window.matchMedia("(max-width: 1225px)").matches) {
-//     spBetn = -550;
-//     if (window.matchMedia("(max-width: 1080px)").matches) {
-//         spBetn = 0;
-//         slidePerGroup = 1;
-//         slideOffsetAft = -400;
-//         slidesOffsetBef = 400;
-//         checkSlideActive = 2;
-//     }
-//     if (window.matchMedia("(max-width: 840px)").matches) {
-//         slideOffsetAft = 0;
-//         slidesOffsetBef = 0;
-//     }
-// }
-// Swiper.use([Navigation, Pagination]);
-// new Swiper('.catalog-items', {
-//     slidesPerGroup: slidePerGroup,
-//     slidesOffsetBefore: slidesOffsetBef,
-//     slidesOffsetAfter: slideOffsetAft,
-//     spaceBetween: spBetn,
-//     grabCursor: true,
-//     navigation: {
-//         nextEl: '.next-slide',
-//         prevEl: '.prev-slide',
-//     },
+//slider
 
-//     on: {
-//         slideNextTransitionStart: function () {
-//             checkSlideList += 2;
-//             for (let c = 0; c < catalogBlock.length; c++) {
-//                 catalogBlock[c].classList.add('clear');// 1 и след. листам добавляется класс -clear-(прозрачные)
-//                 if (c == checkSlideList || checkSlideActive == 2) {
-//                     if (c == 2) {
-//                         changeWidth('catalog-items', 1290, 200);
-//                     }
-//                     for (let i = checkSlideList - checkSlideActive; i < checkSlideList + 2; i++) {
-//                         catalogBlock[i].classList.remove('clear')//убирает у переключенного слайда класс -clear-
-//                         catalogBlock[i].classList.add('visible');//добавляет класс -visible-
-//                     }
-//                     break;
-//                 }
-//             }
-//         },
-//         slidePrevTransitionStart: function () {
-//             checkSlideList -= 2;
-//             for (let c = 0; c < catalogBlock.length; c++) {
-//                 catalogBlock[c].classList.remove('clear');
-//                 if (c == checkSlideList + 1) {// +1 нужен чтобы на старнице оба слайда были -visible-
-//                     if (c == 1) {
-//                         changeWidth('catalog-items', 1260, 200);
-//                     }
-//                     for (let i = checkSlideList + 2; i < checkSlideList + 4; i++) {// +2 нужен чтобы два пред. слайда были -clear- А +4 чтобы цикл не затрагивал активные слайды
-//                         catalogBlock[i].classList.add('clear');//добавляет класс -clear-
-//                         catalogBlock[i].classList.remove('visible');//убираем класс -visible-
-//                     }
-//                     break;
-//                 }
-//             }
-//         }
-//     },
-// });
-// changeWidth('catalog-items', 1260, 500);
-// //slider
-
-// //toggle
+//toggle
 
 const toggle__item = document.getElementsByClassName(
   "toggle__item"
@@ -113,70 +45,19 @@ for (let i = 0; i < slide__btn.length; i++) {
     slide__btn[i].classList.add("active");
   });
 }
-
-// const blockItems = document.getElementsByClassName("toggle__item");
-// let blockTogle;
-// for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//   //Нахождение блоков переключателя
-//   if (blockTogle == 0) {
-//     blockItems[blockTogle].classList.add("active");
-//   } else {
-//     blockItems[blockTogle].classList.add("clear");
-//   }
-// }
-
-// oneBtnToggle?.classList.add("active");
-// oneBtnToggle?.addEventListener("click", function () {
-//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//     if (blockTogle == 0) {
-//       blockItems[blockTogle].classList.add("active");
-//       blockItems[blockTogle].classList.remove("clear");
-
-//       oneBtnToggle?.classList.add("active");
-//     } else {
-//       blockItems[blockTogle].classList.add("clear");
-//       blockItems[blockTogle].classList.remove("active");
-
-//       twoBtnToggle?.classList.remove("active");
-//       thridBtnToggle?.classList.remove("active");
-//     }
-//   }
-// });
-// twoBtnToggle?.addEventListener("click", function () {
-//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//     if (blockTogle == 1) {
-//       blockItems[blockTogle].classList.add("active");
-//       blockItems[blockTogle].classList.remove("clear");
-
-//       twoBtnToggle?.classList.add("active");
-//     } else {
-//       blockItems[blockTogle].classList.add("clear");
-//       blockItems[blockTogle].classList.remove("active");
-
-//       oneBtnToggle?.classList.remove("active");
-//       thridBtnToggle?.classList.remove("active");
-//     }
-//   }
-// });
-// thridBtnToggle?.addEventListener("click", function () {
-//   for (blockTogle = 0; blockTogle < blockItems.length; blockTogle++) {
-//     if (blockTogle == 2) {
-//       blockItems[blockTogle].classList.add("active");
-//       blockItems[blockTogle].classList.remove("clear");
-
-//       thridBtnToggle?.classList.add("active");
-//     } else {
-//       blockItems[blockTogle].classList.add("clear");
-//       blockItems[blockTogle].classList.remove("active");
-
-//       oneBtnToggle?.classList.remove("active");
-//       twoBtnToggle?.classList.remove("active");
-//     }
-//   }
-// });
-// //toggle
+//toggle
 
 // //slider combo
+
+const combo: Swiper = new Swiper(".slider", {
+  modules: [Navigation, Pagination],
+  navigation: {
+    nextEl: ".next-slide-combo",
+    prevEl: ".prev-slide-combo",
+  },
+  loop: true,
+});
+
 // let comoboBlock = document.getElementsByClassName('slider-item');
 // for (let i = 0; i < comoboBlock.length; i++) {
 //     if (i == 0 || i == 1 || i == 2) {
