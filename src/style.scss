@@ -1,911 +1,716 @@
 @import "reset.scss";
 @import "../node_modules/swiper/swiper-bundle.css";
 
+html,
 body {
-    background-color: #f9fbff;
+  background-color: #f9fbff;
+  height: 100%;
 }
-// header
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main {
+  flex: 1 1 auto;
+}
 .container {
-    max-width: 1206px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1206px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
+
 @mixin textMX($wg, $fm, $sz, $cl, $lh) {
-    color: $cl;
-    font: {
-        weight: $wg;
-        family: $fm, sans-serif;
-        size: $sz;
-    }
-    line-height: $lh;
+  color: $cl;
+  font: {
+    weight: $wg;
+    family: $fm, sans-serif;
+    size: $sz;
+  }
+  line-height: $lh;
 }
 .header {
-    background: url(./assets/img/header/bg.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    .header-inner {
-        display: flex;
-        justify-content: space-between;
-        box-sizing: border-box;
+  background: url(./assets/img/header/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  .header-inner {
+    display: grid;
+    grid-template-columns: 200px 39vw 280px;
 
-        .left-side {
-            width: 22%;
-            padding: 76px 0 0 0;
-            background-color: #F9FBFF;
-            .logo {
-                margin-bottom: 406px;
-            }
-            .quotes {
-                @include textMX(900, "Montserrat", 54px, #415167, 70px);
-                margin-bottom: 35px;
-                span {
-                    background-color: #c7a17a;
-                    color: #fff;
-                    padding: 5px 10px;
-                }
-            }
+    .left-side {
+      padding: 71px 0 0 0;
+      background-color: #f9fbff;
+      .logo {
+        margin-bottom: 406px;
+      }
+      .quotes {
+        @include textMX(900, "Montserrat", 54px, #415167, 70px);
+        margin-bottom: 35px;
+        span {
+          background-color: #c7a17a;
+          color: #fff;
+          padding: 5px 10px;
         }
-        .video {
-            align-items: center;
-            justify-content: center;
-            display: flex;
-
-            .videon-btn {
-            }
-        }
-        .video.active {
-        }
-
-        .right-side {
-            background-color: #415167;
-            width: 22%;
-            padding: 76px 0 0 0;
-            .menu {
-                .menu__list {
-                    .cart__number {
-                        position: absolute;
-                        top: 74px;
-                        right: 529px;
-                    }
-                    li {
-                        margin-bottom: 35px;
-                        @include textMX(400, "Nunito", 16px, #edf0f5, 24px);
-                        margin-left: 56px;
-                    }
-                    a {
-                        color: #edf0f4;
-                    }
-                    a:hover {
-                        content: "";
-                        font-weight: 700;
-                    }
-                    .cart {
-                        margin-bottom: 122px - 35px;
-                        &::after {
-                            content: "";
-                            transition: all 0.7s ease-in;
-                            transform: scale(0) rotate(90deg);
-                        }
-                    }
-                    .cart.active {
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            width: 20px;
-                            height: 20px;
-                            background: #c7a17a;
-                            border-radius: 50%;
-                            left: 1359px;
-                            text-align: center;
-                            font-family: "Nunito";
-                            line-height: 20px;
-                            transition: all 0.7s ease-in;
-                            transform: scale(1) rotate(0deg);
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+    .video {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    .right-side {
+      background-color: #415167;
+
+      padding: 76px 0 0 0;
+      .menu {
+        .menu__list {
+          .cart__number {
+            position: absolute;
+            top: 74px;
+            right: 529px;
+          }
+          li {
+            margin-bottom: 35px;
+            @include textMX(400, "Nunito", 16px, #edf0f5, 24px);
+            margin-left: 56px;
+          }
+          a {
+            color: #edf0f4;
+          }
+          a:hover {
+            content: "";
+            font-weight: 700;
+          }
+          .cart {
+            cursor: pointer;
+            margin-bottom: 122px - 35px;
+            &::after {
+              content: "";
+              transition: all 0.7s ease-in;
+              transform: scale(0) rotate(90deg);
+            }
+          }
+          .cart.active {
+            &::after {
+              content: "";
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              background: #c7a17a;
+              border-radius: 50%;
+              left: 1359px;
+              text-align: center;
+              font-family: "Nunito";
+              line-height: 20px;
+              transition: all 0.7s ease-in;
+              transform: scale(1) rotate(0deg);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 //popup
 .popup-video {
-    background-color: rgba(0, 0, 0, 0.9);
-    opacity: 0;
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  transform: scale(0);
+  .popup-body {
     transform: scale(0);
-    .popup-body {
-        transform: scale(0);
-        transition: all 0.7s ease-in 0s;
-        min-height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 10px;
-        .popup-content {
-            position: relative;
-            .video-player {
-            }
-            .close-button {
-                margin: 0 0 34em;
-                cursor: pointer;
-            }
-        }
+    transition: all 0.7s ease-in 0s;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    .popup-content {
+      position: relative;
+      .video-player {
+      }
+      .close-button {
+        margin: 0 0 34em;
+        cursor: pointer;
+      }
     }
+  }
 }
 .popup-video.active {
-    transition: transform 0.7s cubic-bezier(0.7, 0, 0.84, 0);
+  transition: transform 0.7s cubic-bezier(0.7, 0, 0.84, 0);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+  .popup-body {
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform: scale(1);
-    opacity: 1;
-    visibility: visible;
-    .popup-body {
-        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        transform: scale(1);
-    }
+  }
 }
 //popup
 // header
 
 //store inf
 .storeInform {
-    padding: 87px 0 128.43px 0;
-    .storeInform-inner {
-        text-align: center;
-        .title {
-            @include textMX(600, "Nunito", 20px, #415167, 24px);
-            margin-bottom: 7px;
-        }
-        .subtitle {
-            @include textMX(900, "Montserrat", 30px, #415167, 34px);
-            margin-bottom: 72.28px;
-        }
-        .advantages-items {
-            display: flex;
-            .advantages__item {
-                margin-left: 66px;
-                .img__item {
-                    margin-bottom: 41.5px;
-                }
-                .title__item {
-                    @include textMX(700, "Nunito", 24px, #232c38, 28px);
-                    margin-bottom: 12.11px;
-                }
-                .inf {
-                    @include textMX(400, "Nunito", 16px, #151d28, 22px);
-                }
-            }
-        }
+  padding: 87px 0 128.43px 0;
+  .storeInform-inner {
+    text-align: center;
+    .title {
+      @include textMX(600, "Nunito", 20px, #415167, 24px);
+      margin-bottom: 7px;
     }
+    .subtitle {
+      @include textMX(900, "Montserrat", 30px, #415167, 34px);
+      margin-bottom: 72.28px;
+    }
+    .advantages-items {
+      display: flex;
+      gap: 77px;
+      .advantages__item {
+        .img__item {
+          margin-bottom: 41.5px;
+        }
+        .title__item {
+          @include textMX(700, "Nunito", 24px, #232c38, 28px);
+          margin-bottom: 12.11px;
+        }
+        .inf {
+          @include textMX(400, "Nunito", 16px, #151d28, 22px);
+        }
+      }
+    }
+  }
 }
 //store inf
 
 //catalog slider
 .catalog {
-    padding: 90px 0 128px 0;
-    .catalog-inner {
-        position: relative;
-        .title {
-            @include textMX(600, "Nunito", 20px, #415167, 24px);
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .subtitle {
-            @include textMX(900, "Montserrat", 30px, #415167, 34px);
-            text-align: center;
-            margin-bottom: 72px;
-        }
-        .next-slide {
-            outline: none;
-            background-color: #c7a17a;
-            border: none;
-            top: 32em;
-            left: 92em;
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 2;
-            cursor: pointer;
-            &::after {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 19px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(45deg);
-                border-radius: 20px;
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 27px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(-45deg);
-                border-radius: 20px;
-            }
-        }
-        .prev-slide {
-            outline: none;
-            transform: rotate(180deg);
-            background-color: #c7a17a;
-            border: none;
-            top: 32em;
-            left: -5em;
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 2;
-            cursor: pointer;
-            &::after {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 19px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(45deg);
-                border-radius: 20px;
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                width: 13px;
-                height: 3px;
-                top: 27px;
-                right: 9px;
-                background-color: #fff;
-                transform: rotate(-45deg);
-                border-radius: 20px;
-            }
-        }
-        .backcolor {
-            width: 384px;
-            height: 856px;
-            position: absolute;
-            background: #415167;
-            z-index: -1;
-            top: 0;
-            left: -9.5em;
-        }
-        .catalog-items {
-            .swiper-wrapper {
-                display: flex;
-                margin: 0 -21em 0 -14.5em;
-                .catalog__block {
-                    margin-right: 15px;
-                    margin-left: 15px;
-                    .catalog__item {
-                        width: 559px;
-                        margin-bottom: 32px;
-                        background-color: #fff;
-
-                        .photo {
-                            background-color: #edf0f5;
-                        }
-                        display: flex;
-                        .text {
-                            max-width: 559px;
-                            margin: 42px 0 42px 45px;
-                            .price {
-                                @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
-                                margin-bottom: 17px;
-                            }
-                            .productName {
-                                @include textMX(700, "Nunito", 24px, #232c38, 28px);
-                                margin-bottom: 34px;
-                            }
-                            .inf {
-                                @include textMX(400, "Nunito", 16px, #151d28, 22px);
-                                margin-bottom: 36px;
-                            }
-                            .cart-btn {
-                                margin-right: 49px;
-                                .in__cart {
-                                    cursor: pointer;
-                                    border-radius: 19px;
-                                    background: #c7a17a;
-                                    @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
-                                    margin-right: 29px;
-                                    padding: 8px 17px;
-                                    outline: none;
-                                    border: 0;
-                                }
-                                .deetails {
-                                    @include textMX(700, "Nunito", 16px, #415167, 22px);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            //opacity control slider
-            .catalog__block.visible {
-                opacity: 1;
-            }
-            .catalog__block.clear {
-                opacity: 0.5;
-            }
-        }
+  padding: 90px 0 128px 0;
+  .catalog-inner {
+    position: relative;
+    .title {
+      @include textMX(600, "Nunito", 20px, #415167, 24px);
+      text-align: center;
+      margin-bottom: 12px;
     }
+    .subtitle {
+      @include textMX(900, "Montserrat", 30px, #415167, 34px);
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .next-slide {
+      transform: translate(50px, 50px);
+      outline: none;
+      background-color: #c7a17a;
+      border: none;
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+
+      // for reset swiper arrows
+      &::after {
+        content: "";
+      }
+    }
+    .catalog-items {
+      .swiper-wrapper {
+        .catalog__block {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px 30px;
+          .catalog__item {
+            width: 559px;
+            margin-bottom: 32px;
+            background-color: #fff;
+            // transition: 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            // &:hover {
+            //   transition: 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            //   filter: drop-shadow(0px 4px 24px rgba(205, 205, 205, 0.5));
+            // }
+            .photo {
+              background-color: #edf0f5;
+            }
+            display: flex;
+            .text {
+              max-width: 559px;
+              margin: 42px 0 42px 45px;
+              .price {
+                @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
+                margin-bottom: 17px;
+              }
+              .productName {
+                @include textMX(700, "Nunito", 24px, #232c38, 28px);
+                margin-bottom: 34px;
+              }
+              .inf {
+                @include textMX(400, "Nunito", 16px, #151d28, 22px);
+                margin-bottom: 36px;
+              }
+              .cart-btn {
+                margin-right: 49px;
+                .in__cart {
+                  cursor: pointer;
+                  border-radius: 19px;
+                  background: #c7a17a;
+                  @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
+                  margin-right: 29px;
+                  padding: 8px 17px;
+                  outline: none;
+                  border: 0;
+                }
+                .deetails {
+                  @include textMX(700, "Nunito", 16px, #415167, 22px);
+                }
+              }
+            }
+          }
+        }
+      }
+      //opacity control slider
+      .catalog__block.visible {
+        opacity: 1;
+      }
+      .catalog__block.clear {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 //catalog slider
 
 //gits toggle
 .gifts {
-    // height: 591px;
-    padding: 86px 0 125px;
-    .gifts-inner {
-        position: relative;
-        .text {
-            text-align: center;
-            @include textMX(600, "Nunito", 20px, #415167, 24px);
-            margin-bottom: 66px;
-            .text__title {
-            }
-            .text__subtitle {
-                font-family: "Montserrat";
-                font-size: 30px;
-                font-weight: 900;
-                line-height: 34px;
-            }
-        }
-        &::after {
-            content: "";
-            width: 1076px;
-            height: 802px;
-            background-color: #edf0f5;
-            position: absolute;
-            z-index: -2;
-            left: -9.5em;
-            top: -8.5em;
-        }
-        .toggle {
-            .toggle-items {
-                .slide {
-                }
-                .toggle__item {
-                    position: absolute;
-                    display: flex;
-                    width: 882px;
-                    height: 462px;
-                    box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
-                    margin: 0 0 0 211px;
-                    .photo {
-                        position: absolute;
-                        left: -16.5em;
-                        transform: translate(-120%, 0);
-                        opacity: 0;
-                    }
-                    .descr {
-                        border: 1px solid #edf0f5;
-                        @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
-                        background-color: #ffff;
-                        width: 882px;
-                        padding-left: 300px;
-                        padding-right: 64px;
-                        .descr__price {
-                            opacity: 0;
-                            transform: translate(0, 120%);
-                            margin-top: 64px;
-                            margin-bottom: 12px;
-                        }
-                        .descr__title {
-                            opacity: 0;
-                            transform: translate(0, 80%);
-                            font-weight: 700;
-                            margin-bottom: 12px;
-                            color: #232c38;
-                        }
-                        .descr__composition {
-                            transform: translate(0, 10%);
-                            opacity: 0;
-                            font-weight: 300;
-                            font-size: 16px;
-                            line-height: 22px;
-                            margin-bottom: 24px;
-                            color: #151d28;
-                            width: 443px;
-                        }
-                        .descr__manufactured {
-                            color: #415167;
-                            display: flex;
-                            .coffe {
-                                margin-bottom: 46px;
-                                transform: translate(0, 120%);
-                                opacity: 0;
-                                span {
-                                    font-weight: 300;
-                                    font-size: 16px;
-                                    line-height: 22px;
-                                }
-                                margin-right: 38px;
-                                &::before {
-                                    content: "";
-                                    background: url(./assets/img/giftset/coffe.png) no-repeat;
-                                    width: 40px;
-                                    height: 40px;
-                                    margin-right: 12px;
-                                }
-                            }
-                            .mounts {
-                                transform: translate(0, -120%);
-                                opacity: 0;
-                                span {
-                                    font-weight: 300;
-                                    font-size: 16px;
-                                    line-height: 22px;
-                                }
-                                &::before {
-                                    content: "";
-                                    background: url(./assets/img/giftset/mounts.png) no-repeat;
-                                    width: 40px;
-                                    height: 40px;
-                                    margin-right: 12px;
-                                }
-                            }
-                        }
-                        .descr-btn {
-                            transform: translate(0, -120%);
-                            opacity: 0;
-                            .in__cart {
-                                color: #f9fbff;
-                                margin-right: 63px;
-                                background-color: #c7a17a;
-                                padding: 8px 32px 8px 32px;
-                                border-radius: 19px;
-                                font-weight: 700;
-                                font-size: 16px;
-                                line-height: 22px;
-                            }
-                            .deetails {
-                                color: #415167;
-                            }
-                        }
-                    }
-                }
-                .slide-btn {
-                    @include textMX(900, "Montserrat", 30px, #415167, 34px);
-                    text-align: center;
-                    border: 1px solid #edf0f5;
-                    background: #ffff;
-                    margin: 0 0 0 1093px;
-                    height: 460px;
-                    max-width: 88px;
-                    overflow: hidden;
-
-                    .slide-btn-items__one {
-                        background-color: #edf0f5;
-                        height: 154px;
-                        width: 88px;
-                        opacity: 0.4;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                    }
-                    .slide-btn-items__one.active {
-                        background-color: #ffff;
-                        opacity: 1;
-                    }
-
-                    .slide-btn-items__two {
-                        background-color: #edf0f5;
-                        height: 154px;
-                        width: 88px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        opacity: 0.4;
-                        cursor: pointer;
-                        overflow: hidden;
-                    }
-                    .slide-btn-items__two.active {
-                        background-color: #ffff;
-                        opacity: 1;
-                    }
-                    .slide-btn-items__thrid {
-                        background-color: #edf0f5;
-                        height: 154px;
-                        width: 88px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        opacity: 0.4;
-                        cursor: pointer;
-                    }
-                    .slide-btn-items__thrid.active {
-                        background-color: #ffff;
-                        opacity: 1;
-                    }
-                }
-            }
-            .toggle__item.active {
-                position: absolute;
-                visibility: visible;
-                z-index: -1;
-                .photo {
-                    transform: translate(0, 0);
-                    opacity: 1;
-                    transition: all 0.8s ease-in-out;
-                }
-                .descr {
-                    .descr__price {
-                        transform: translate(0, 0);
-                        opacity: 1;
-                        transition: all 0.8s ease-in-out;
-                    }
-                    .descr__title {
-                        transform: translate(0, 0);
-                        opacity: 1;
-                        transition: all 0.8s ease-in-out;
-                    }
-                    .descr__composition {
-                        transform: translate(0, 0);
-                        opacity: 1;
-                        transition: all 0.8s ease-in-out;
-                    }
-                    .descr__manufactured {
-                        .coffe {
-                            transform: translate(0, 0);
-                            opacity: 1;
-                            transition: all 0.8s ease-in-out;
-                        }
-                        .mounts {
-                            transform: translate(0, 0);
-                            opacity: 1;
-                            transition: all 0.8s ease-in-out;
-                        }
-                    }
-                    .descr-btn {
-                        transform: translate(0, 0);
-                        opacity: 1;
-                        transition: all 0.8s ease-in-out;
-                        .in__cart {
-                        }
-                        .deetails {
-                        }
-                    }
-                }
-            }
-        }
-        .toggle__item.clear {
-            opacity: 0;
-            visibility: hidden;
-        }
+  // height: 591px;
+  padding: 86px 0 125px;
+  .gifts-inner {
+    position: relative;
+    .text {
+      text-align: center;
+      @include textMX(600, "Nunito", 20px, #415167, 24px);
+      margin-bottom: 66px;
+      .text__subtitle {
+        font-family: "Montserrat";
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 34px;
+      }
     }
+    // &::after {
+    //   content: "";
+    //   width: 1076px;
+    //   height: 802px;
+    //   background-color: #edf0f5;
+    //   position: absolute;
+    //   z-index: -2;
+    //   left: -9.5em;
+    //   top: -8.5em;
+    // }
+    .toggle {
+      .toggle-items {
+        .slide {
+        }
+        .toggle__item {
+          position: absolute;
+          display: flex;
+          width: 882px;
+          height: 462px;
+          box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
+          margin: 0 0 0 211px;
+          .photo {
+            position: absolute;
+            left: -16.5em;
+            transform: translate(-120%, 0);
+            opacity: 0;
+          }
+          .descr {
+            border: 1px solid #edf0f5;
+            @include textMX(600, "Nunito", 20px, #c7a17a, 24px);
+            background-color: #ffff;
+            width: 882px;
+            padding-left: 300px;
+            padding-right: 64px;
+            .descr__price {
+              opacity: 0;
+              transform: translate(0, 120%);
+              margin-top: 64px;
+              margin-bottom: 12px;
+            }
+            .descr__title {
+              opacity: 0;
+              transform: translate(0, 80%);
+              font-weight: 700;
+              margin-bottom: 12px;
+              color: #232c38;
+            }
+            .descr__composition {
+              transform: translate(0, 10%);
+              opacity: 0;
+              font-weight: 300;
+              font-size: 16px;
+              line-height: 22px;
+              margin-bottom: 24px;
+              color: #151d28;
+              width: 443px;
+            }
+            .descr__manufactured {
+              color: #415167;
+              display: flex;
+              .coffe {
+                margin-bottom: 46px;
+                transform: translate(0, 120%);
+                opacity: 0;
+                span {
+                  font-weight: 300;
+                  font-size: 16px;
+                  line-height: 22px;
+                }
+                margin-right: 38px;
+                &::before {
+                  content: "";
+                  background: url(./assets/img/giftset/coffe.png) no-repeat;
+                  width: 40px;
+                  height: 40px;
+                  margin-right: 12px;
+                }
+              }
+              .mounts {
+                transform: translate(0, -120%);
+                opacity: 0;
+                span {
+                  font-weight: 300;
+                  font-size: 16px;
+                  line-height: 22px;
+                }
+                &::before {
+                  content: "";
+                  background: url(./assets/img/giftset/mounts.png) no-repeat;
+                  width: 40px;
+                  height: 40px;
+                  margin-right: 12px;
+                }
+              }
+            }
+            .descr-btn {
+              transform: translate(0, -120%);
+              opacity: 0;
+              .in__cart {
+                color: #f9fbff;
+                margin-right: 63px;
+                background-color: #c7a17a;
+                padding: 8px 32px 8px 32px;
+                border-radius: 19px;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 22px;
+              }
+              .deetails {
+                color: #415167;
+              }
+            }
+          }
+        }
+        .slide-btns {
+          @include textMX(900, "Montserrat", 30px, #415167, 34px);
+          text-align: center;
+          border: 1px solid #edf0f5;
+          background: #ffff;
+          margin: 0 0 0 1093px;
+          height: 460px;
+          width: 88px;
+          overflow: hidden;
+
+          .slide-btn {
+            background-color: #edf0f5;
+            height: 154px;
+            width: 88px;
+            opacity: 0.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+          .slide-btn.active {
+            background-color: #ffff;
+            opacity: 1;
+          }
+
+          // .slide-btn-items__two {
+          //   background-color: #edf0f5;
+          //   height: 154px;
+          //   width: 88px;
+          //   display: flex;
+          //   align-items: center;
+          //   justify-content: center;
+          //   opacity: 0.4;
+          //   cursor: pointer;
+          //   overflow: hidden;
+          // }
+          // .slide-btn-items__two.active {
+          //   background-color: #ffff;
+          //   opacity: 1;
+          // }
+          // .slide-btn-items__thrid {
+          //   background-color: #edf0f5;
+          //   height: 154px;
+          //   width: 88px;
+          //   display: flex;
+          //   align-items: center;
+          //   justify-content: center;
+          //   opacity: 0.4;
+          //   cursor: pointer;
+          // }
+          // .slide-btn-items__thrid.active {
+          //   background-color: #ffff;
+          //   opacity: 1;
+          // }
+        }
+      }
+      .toggle__item.active {
+        position: absolute;
+        visibility: visible;
+        z-index: -1;
+        .photo {
+          transform: translate(0, 0);
+          opacity: 1;
+          transition: all 0.8s ease-in-out;
+        }
+        .descr {
+          .descr__price {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: all 0.8s ease-in-out;
+          }
+          .descr__title {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: all 0.8s ease-in-out;
+          }
+          .descr__composition {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: all 0.8s ease-in-out;
+          }
+          .descr__manufactured {
+            .coffe {
+              transform: translate(0, 0);
+              opacity: 1;
+              transition: all 0.8s ease-in-out;
+            }
+            .mounts {
+              transform: translate(0, 0);
+              opacity: 1;
+              transition: all 0.8s ease-in-out;
+            }
+          }
+          .descr-btn {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: all 0.8s ease-in-out;
+          }
+        }
+      }
+    }
+    .toggle__item.clear {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
 }
 //gifts toggle
 
 //comobo
 .combo {
-    padding: 88px 0 128px;
-    .combo-inner {
-        position: relative;
-        &::after {
-            content: "";
-            width: 326px;
-            height: 979px;
-            background-color: #415167;
-            position: absolute;
-            z-index: -1;
-            right: -2.2em;
-            top: -6.8em;
-        }
-        @include textMX(600, "Nunito", 20px, #415167, 24px);
-        .title {
-            text-align: center;
-            margin-bottom: 6px;
-        }
-        .subtitle {
-            text-align: center;
-            @include textMX(900, "Montserrat", 30px, #415167, 34px);
-            margin-bottom: 64px;
-        }
-        .navigation-btn {
-            position: relative;
-            .next-slide-combo {
-                outline: none;
-                background-color: #c7a17a;
-                border: none;
-                top: 20em;
-                left: 82em;
-                position: absolute;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                z-index: 2;
-                cursor: pointer;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 13px;
-                    height: 3px;
-                    top: 19px;
-                    right: 9px;
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    border-radius: 20px;
-                }
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 13px;
-                    height: 3px;
-                    top: 27px;
-                    right: 9px;
-                    background-color: #fff;
-                    transform: rotate(-45deg);
-                    border-radius: 20px;
-                }
-            }
-            .prev-slide-combo {
-                outline: none;
-                transform: rotate(180deg);
-                background-color: #c7a17a;
-                border: none;
-                top: 20em;
-                left: -8em;
-                position: absolute;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                z-index: 2;
-                cursor: pointer;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 13px;
-                    height: 3px;
-                    top: 19px;
-                    right: 9px;
-                    background-color: #fff;
-                    transform: rotate(45deg);
-                    border-radius: 20px;
-                }
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 13px;
-                    height: 3px;
-                    top: 27px;
-                    right: 9px;
-                    background-color: #fff;
-                    transform: rotate(-45deg);
-                    border-radius: 20px;
-                }
-            }
-        }
-        .slider {
-            // width: 1267px;
-            overflow: hidden;
-
-            .slider-items {
-                display: flex;
-                .slide-block {
-                    display: flex;
-                    .slider-item {
-                        width: 360px;
-                        margin-right: 30px;
-                        @include textMX(600, "Nunito", 20px, #151d28, 24px);
-                        .photo-product {
-                            background-color: #edf0f5;
-                        }
-                        .about-product {
-                            padding: 42px 42px;
-
-                            background-color: #ffff;
-                            .price {
-                                display: flex;
-                                margin-bottom: 9px;
-                                p {
-                                    margin-right: 16px;
-                                    color: #c7a17a;
-                                }
-                                strike {
-                                    font-style: italic;
-                                    font-size: 14px;
-                                    font-weight: 300;
-                                    color: #415167;
-                                }
-                            }
-                            .name-combo {
-                                font-weight: 700;
-                                font-size: 24px;
-                                line-height: 28px;
-                                margin-bottom: 10px;
-                            }
-                            .description-combo {
-                                font-weight: 300;
-                                font-size: 16px;
-                                line-height: 22px;
-                                margin-bottom: 32px;
-                            }
-                            .btn {
-                                .in__cart {
-                                    border-radius: 19px;
-                                    background: #c7a17a;
-                                    @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
-                                    margin-right: 54px;
-                                    padding: 8px 17px;
-                                }
-                                .deetails {
-                                    @include textMX(700, "Nunito", 16px, #415167, 22px);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            //opacity control slider
-            .slider-item.clear {
-                opacity: 0.5;
-            }
-        }
+  padding: 88px 0 128px;
+  .combo-inner {
+    position: relative;
+    @include textMX(600, "Nunito", 20px, #415167, 24px);
+    .title {
+      text-align: center;
+      margin-bottom: 6px;
     }
+    .subtitle {
+      text-align: center;
+      @include textMX(900, "Montserrat", 30px, #415167, 34px);
+      margin-bottom: 64px;
+    }
+    .navigation-btn {
+      position: relative;
+      .next-slide-combo {
+        transform: translate(10px, 258px);
+        outline: none;
+        background-color: #c7a17a;
+        border: none;
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 2;
+
+        &::after {
+          content: "";
+        }
+      }
+    }
+    .slider {
+      // width: 1267px;
+      overflow: hidden;
+
+      .slider-items {
+        display: flex;
+        .slide-block {
+          display: flex;
+          .slider-item {
+            width: 360px;
+            margin-right: 30px;
+            @include textMX(600, "Nunito", 20px, #151d28, 24px);
+            .photo-product {
+              background-color: #edf0f5;
+            }
+            .about-product {
+              padding: 42px 42px;
+
+              background-color: #ffff;
+              .price {
+                display: flex;
+                margin-bottom: 9px;
+                p {
+                  margin-right: 16px;
+                  color: #c7a17a;
+                }
+                strike {
+                  font-style: italic;
+                  font-size: 14px;
+                  font-weight: 300;
+                  color: #415167;
+                }
+              }
+              .name-combo {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 28px;
+                margin-bottom: 10px;
+              }
+              .description-combo {
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 22px;
+                margin-bottom: 32px;
+              }
+              .btn {
+                .in__cart {
+                  border-radius: 19px;
+                  background: #c7a17a;
+                  @include textMX(700, "Nunito", 16px, #f9fbff, 22px);
+                  margin-right: 54px;
+                  padding: 8px 17px;
+                }
+                .deetails {
+                  @include textMX(700, "Nunito", 16px, #415167, 22px);
+                }
+              }
+            }
+          }
+        }
+      }
+      //opacity control slider
+      .slider-item.clear {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 //comobo
 //footer
 .footer {
-    text-align: center;
-    background-color: #edf0f5;
-    @include textMX(300, "Nunito", 16px, #151d28, 22px);
-    font-style: italic;
-    padding: 18px 0 20px;
+  text-align: center;
+  background-color: #edf0f5;
+  @include textMX(300, "Nunito", 16px, #151d28, 22px);
+  font-style: italic;
+  padding: 18px 0 20px;
 }
+
 //footer
 
 //carts page
 .container {
-    max-width: 1206px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1206px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 .back {
-    a {
-        &::after {
-            content: "";
-            background-color: #000;
-            position: absolute;
-            transition: transform 0.6s ease-in-out;
-            width: 40px;
-            margin-top: 20px;
-            margin-left: 20px;
-            transform: rotateZ(147deg);
-            height: 2px;
-        }
-
-        &::before {
-            content: "";
-            background-color: #000;
-            position: absolute;
-            transition: transform 0.6s ease-in-out;
-            width: 40px;
-            margin-top: 20px;
-            margin-left: 20px;
-            transform: translate(2px) rotate(45deg);
-            height: 2px;
-        }
-        &:hover::after {
-            content: "";
-            transition: transform 0.6s ease-in-out;
-            transform: rotateZ(130deg);
-        }
-        &:hover::before {
-            content: "";
-            transition: transform 0.6s ease-in-out;
-            transform: translate(0px) rotate(45deg);
-        }
+  a {
+    &::after {
+      content: "";
+      background-color: #000;
+      position: absolute;
+      transition: transform 0.6s ease-in-out;
+      width: 40px;
+      margin-top: 20px;
+      margin-left: 20px;
+      transform: rotateZ(147deg);
+      height: 2px;
     }
+
+    &::before {
+      content: "";
+      background-color: #000;
+      position: absolute;
+      transition: transform 0.6s ease-in-out;
+      width: 40px;
+      margin-top: 20px;
+      margin-left: 20px;
+      transform: translate(2px) rotate(45deg);
+      height: 2px;
+    }
+    &:hover::after {
+      content: "";
+      transition: transform 0.6s ease-in-out;
+      transform: rotateZ(130deg);
+    }
+    &:hover::before {
+      content: "";
+      transition: transform 0.6s ease-in-out;
+      transform: translate(0px) rotate(45deg);
+    }
+  }
 }
 .header-store {
-    background: #f9fbff;
-    h1 {
-        text-align: center;
-        @include textMX(900, "Montserrat", 44px, #415167, 70px);
-    }
+  background: #f9fbff;
+  h1 {
+    text-align: center;
+    @include textMX(900, "Montserrat", 44px, #415167, 70px);
+  }
 }
 .order {
-    .order-inner {
-        .order-items {
-            .item {
-                display: flex;
-                .item-photo {
-                    img {
-                        height: 200px;
-                    }
-                }
-                .item__text {
-                    @include textMX(600, "Nunito", 16px, #415167, 16px);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: start;
-                    .item-quantity {
-                        display: flex;
-                        .item-btn {
-                            margin-right: 20px;
-                            .btn-plus {
-                                background: #51af40;
-                                color: #f9fbff;
-                                font-weight: 700;
-                                font-family: "Nunito", sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                outline: none;
-                                border: 0;
-                                cursor: pointer;
-                                height: 30px;
-                                width: 30px;
-                                border-radius: 10px;
-                            }
-                            span {
-                                color: #151d28;
-                            }
-                            .btn-minus {
-                                background: #bf2f2f;
-                                color: #f9fbff;
-                                font-weight: 700;
-                                font-family: "Nunito", sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                outline: none;
-                                border: 0;
-                                cursor: pointer;
-                                height: 30px;
-                                width: 30px;
-                                border-radius: 10px;
-                            }
-                        }
-                        .item-total {
-                            margin-left: 200px;
-                            span {
-                                margin-right: 10px;
-                                color: #151d28;
-                            }
-                        }
-                    }
-                    .item-name {
-                        margin: 35px 0 50px 0;
-                        color: #232c38;
-                        font-weight: 700;
-                        font-family: "Nunito", sans-serif;
-                        font-size: 24px;
-                        line-height: 28px;
-                    }
-                }
-            }
+  .order-inner {
+    .order-items {
+      .item {
+        display: flex;
+        .item-photo {
+          img {
+            height: 200px;
+          }
         }
-        .count {
-            @include textMX(600, "Nunito", 16px, #415167, 16px);
-            &::before {
-                content: "";
-                display: block;
-                height: 3px;
-                background: #000;
-                margin-bottom: 20px;
-            }
-            span {
-                margin-right: 10px;
-                color: #151d28;
-            }
-            .BuyOrder {
-                margin-left: 82%;
-                background: #415167;
+        .item__text {
+          @include textMX(600, "Nunito", 16px, #415167, 16px);
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          .item-quantity {
+            display: flex;
+            .item-btn {
+              margin-right: 20px;
+              .btn-plus {
+                background: #51af40;
                 color: #f9fbff;
                 font-weight: 700;
                 font-family: "Nunito", sans-serif;
@@ -915,10 +720,74 @@ body {
                 border: 0;
                 cursor: pointer;
                 height: 30px;
+                width: 30px;
                 border-radius: 10px;
+              }
+              span {
+                color: #151d28;
+              }
+              .btn-minus {
+                background: #bf2f2f;
+                color: #f9fbff;
+                font-weight: 700;
+                font-family: "Nunito", sans-serif;
+                font-size: 16px;
+                line-height: 22px;
+                outline: none;
+                border: 0;
+                cursor: pointer;
+                height: 30px;
+                width: 30px;
+                border-radius: 10px;
+              }
             }
+            .item-total {
+              margin-left: 200px;
+              span {
+                margin-right: 10px;
+                color: #151d28;
+              }
+            }
+          }
+          .item-name {
+            margin: 35px 0 50px 0;
+            color: #232c38;
+            font-weight: 700;
+            font-family: "Nunito", sans-serif;
+            font-size: 24px;
+            line-height: 28px;
+          }
         }
+      }
     }
+    .count {
+      @include textMX(600, "Nunito", 16px, #415167, 16px);
+      &::before {
+        content: "";
+        display: block;
+        height: 3px;
+        background: #000;
+        margin-bottom: 20px;
+      }
+      span {
+        margin-right: 10px;
+        color: #151d28;
+      }
+      .BuyOrder {
+        margin-left: 82%;
+        background: #415167;
+        color: #f9fbff;
+        font-weight: 700;
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        line-height: 22px;
+        outline: none;
+        border: 0;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 10px;
+      }
+    }
+  }
 }
-//carts page
 @import "media.scss";
