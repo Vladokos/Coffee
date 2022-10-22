@@ -320,7 +320,7 @@ body {
         .toggle__item {
           position: absolute;
           display: flex;
-          width: 882px;
+          max-width: 75%;
           height: 462px;
           box-shadow: 1px 0px 10px rgba(205, 205, 205, 0.5);
           margin: 0 0 0 211px;
@@ -358,13 +358,15 @@ body {
               line-height: 22px;
               margin-bottom: 24px;
               color: #151d28;
-              width: 443px;
+              max-width: 443px;
             }
             .descr__manufactured {
               color: #415167;
               display: flex;
+              margin-bottom: 46px;
+              column-gap: 30px;
               .coffe {
-                margin-bottom: 46px;
+                display: flex;
                 transform: translate(0, 120%);
                 opacity: 0;
                 span {
@@ -372,7 +374,6 @@ body {
                   font-size: 16px;
                   line-height: 22px;
                 }
-                margin-right: 38px;
                 &::before {
                   content: "";
                   background: url(./assets/img/giftset/coffe.png) no-repeat;
@@ -382,6 +383,7 @@ body {
                 }
               }
               .mounts {
+                display: flex;
                 transform: translate(0, -120%);
                 opacity: 0;
                 span {
@@ -422,7 +424,7 @@ body {
           text-align: center;
           border: 1px solid #edf0f5;
           background: #ffff;
-          margin: 0 0 0 1093px;
+          margin: 0 0 0 90%;
           height: 460px;
           width: 88px;
           overflow: hidden;
