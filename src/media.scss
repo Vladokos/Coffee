@@ -20,7 +20,68 @@
       }
     }
   }
+  .combo {
+    .combo-inner {
+      .slider {
+        .slider-items {
+          .slide-block {
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
 }
+@media (max-width: 1068px) {
+  .gifts {
+    .gifts-inner {
+      .toggle {
+        .toggle-items {
+          .toggle__item {
+            max-width: 70%;
+            .descr {
+              padding-left: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 956px) {
+  .gifts {
+    .gifts-inner {
+      .toggle {
+        .toggle-items {
+          .toggle__item {
+            height: 535px;
+            .descr {
+              .descr__price{
+                margin-top: 15px;
+              }
+              .descr__manufactured {
+                flex-direction: column;
+              }
+              .descr-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+              }
+            }
+          }
+          .slide-btns{
+            height: 532px;
+            .slide-btn{
+              height: 33.5%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // @media (max-width: 1508px) {
 //     .combo .combo-inner .navigation-btn .prev-slide-combo {
 //         left: -4em;
