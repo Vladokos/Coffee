@@ -49,6 +49,13 @@
   }
 }
 @media (max-width: 956px) {
+  .header {
+    .header-inner {
+      .right-side {
+        width: 230px;
+      }
+    }
+  }
   .gifts {
     .gifts-inner {
       .toggle {
@@ -56,7 +63,7 @@
           .toggle__item {
             height: 535px;
             .descr {
-              .descr__price{
+              .descr__price {
                 margin-top: 15px;
               }
               .descr__manufactured {
@@ -70,10 +77,101 @@
               }
             }
           }
-          .slide-btns{
+          .slide-btns {
             height: 532px;
-            .slide-btn{
+            .slide-btn {
               height: 33.5%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 790px) {
+  .gifts {
+    .gifts-inner {
+      .toggle {
+        .toggle-items {
+          .toggle__item {
+            .photo {
+              top: 28%;
+            }
+            .descr {
+              padding-left: 228px;
+              padding-right: 20px;
+            }
+          }
+
+          .slide-btns {
+            display: flex;
+            width: 215px;
+            height: 90px;
+            top: 125px;
+            left: 212px;
+            .slide-btn {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px ) and (max-width:754px){
+  .header {
+    background: none;
+    .header-inner {
+      display: block;
+      .left-side {
+        .logo {
+          margin-bottom: 0;
+        }
+        .quotes {
+          display: none;
+        }
+      }
+      .video {
+        display: none;
+      }
+      .right-side {
+        display: none;
+      }
+    }
+  }
+  .storeInform {
+    .storeInform-inner {
+      .advantages-items {
+        flex-direction: column;
+      }
+    }
+  }
+  .gifts {
+    .gifts-inner {
+      .toggle {
+        .toggle-items {
+          .slide-btns {
+            height: 70px;
+            top: 53px;
+            left: 1px;
+          }
+        }
+      }
+    }
+  }
+  .gifts {
+    .gifts-inner {
+      .toggle {
+        .toggle-items {
+          .toggle__item {
+            margin: 0;
+            height: 745px;
+            .photo {
+              display: none;
+            }
+            .descr {
+              padding-left: 50px;
             }
           }
         }
