@@ -203,8 +203,9 @@ body {
       text-align: center;
       margin-bottom: 72px;
     }
+
     .next-slide {
-      transform: translate(50px, 50px);
+      transform: translate(19%, 50px);
       outline: none;
       background-color: #c7a17a;
       border: none;
@@ -318,7 +319,6 @@ body {
         .slide {
         }
         .toggle__item {
-          position: absolute;
           display: flex;
           max-width: 75%;
           height: 462px;
@@ -326,7 +326,7 @@ body {
           margin: 0 0 0 211px;
           .photo {
             position: absolute;
-            left: -16.5em;
+            left: -2.5em;
             transform: translate(-120%, 0);
             opacity: 0;
           }
@@ -377,7 +377,7 @@ body {
                 &::before {
                   content: "";
                   background: url(./assets/img/giftset/coffe.png) no-repeat;
-                  width: 40px;
+                  width: 50px;
                   height: 40px;
                   margin-right: 12px;
                 }
@@ -424,7 +424,10 @@ body {
           text-align: center;
           border: 1px solid #edf0f5;
           background: #ffff;
-          margin: 0 0 0 90%;
+          position: absolute;
+          top: 125px;
+          left: 90%;
+          // margin: 0 0 0 90%;
           height: 460px;
           width: 88px;
           overflow: hidden;
@@ -476,7 +479,6 @@ body {
         }
       }
       .toggle__item.active {
-        position: absolute;
         visibility: visible;
         z-index: -1;
         .photo {
@@ -521,6 +523,7 @@ body {
       }
     }
     .toggle__item.clear {
+      position: absolute;
       opacity: 0;
       visibility: hidden;
     }
